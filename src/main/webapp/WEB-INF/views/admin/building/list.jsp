@@ -202,16 +202,24 @@
                                                            placeholder=""
                                                            class="form-control"/>
                                                 </div>
-                                                <%--chi co manager moi hien thi--%>
-                                                <security:authorize access="hasRole('MANAGER')">
-                                                    <div class="col-sm-3">
-                                                        <label >Chon nhan vien phu trach</label>
-                                                        <form:select path="staffInCharge">
-                                                            <form:option value="" label="--Chon nhan vien"/>
-                                                            <form:options  items="${userList}"/>
-                                                        </form:select>
-                                                    </div>
-                                                </security:authorize>
+
+                                                <div class="col-sm-3">
+                                                    <label >Chon nhan vien phu trach</label>
+                                                    <form:select path="staffInCharge">
+                                                        <form:option value="" label="--Chon nhan vien"/>
+                                                        <form:options  items="${userList}"/>
+                                                    </form:select>
+                                                    <%--<select name="staffInCharge" id="staff"--%>
+                                                            <%--aria-label="Default select example">--%>
+                                                        <%--<option selected value="">Chon nhan vien phu trach</option>--%>
+                                                        <%--<c:forEach var="item" items="${userList}">--%>
+                                                            <%--<option--%>
+                                                                    <%--<c:if test="${modelSearch.staffInCharge==item.id}">selected</c:if>--%>
+                                                                    <%--value="${item.id}">${item.fullName}</option>--%>
+                                                        <%--</c:forEach>--%>
+                                                    <%--</select>--%>
+
+                                                </div>
 
                                                 <!-- PAGE CONTENT ENDS -->
                                             </div><!-- /.col -->

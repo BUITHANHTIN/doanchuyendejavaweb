@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Them khach hang</title>
+    <title>Thêm khách hàng</title>
     <!-- <title>Trang chủ</title> -->
 </head>
 <body>
@@ -54,7 +54,7 @@
                             <!-- PAGE CONTENT BEGINS -->
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">Name </label>
+                                    <label class="col-sm-3 control-label no-padding-right">Full Name </label>
 
                                     <div class="col-sm-9">
                                         <input type="text" value="" name="fullName"
@@ -62,60 +62,61 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Phone </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="number" value="" name="phone"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right"
                                     >Email</label>
+
                                     <div class="col-sm-9">
-                                        <input name="email" value="" type="text"
+                                        <input name="email" value="" type="text" id="email"
                                                class="form-control"/>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Tên công ty</label>
 
+                                    <div class="col-sm-9">
+                                        <input name="company" value="" type="text" id="company"
+                                               class="form-control"/>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right"
-                                    >Phone</label>
+                                    >Nhu cầu</label>
+
                                     <div class="col-sm-9">
-                                        <input name="phone" value="" type="number"
+                                        <input name="demand" value="" type="text" id="demand"
                                                class="form-control"/>
                                     </div>
-
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Company</label>
-                                    <div class="col-sm-9">
-                                        <input name="company" value="" type="text"
-                                               class="form-control"/>
-                                    </div>
+                                    <label class="col-sm-3 control-label no-padding-right">Ghi chú
+                                    </label>
 
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Demand</label>
-                                    <div class="col-sm-9">
-                                        <input name="demand" value="" type="text"
-                                               class="form-control"/>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Note</label>
                                     <div class="col-sm-9">
                                         <input name="note" value="" type="text"
                                                class="form-control"/>
                                     </div>
-
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"></label>
+                                    <label class="col-sm-3 control-label no-padding-right">
+                                    </label>
                                     <div class="col-sm-9">
-                                        <button id="btnAddCustomer" type="button" class="btn btn-primary">Add
+                                        <button id="btnAddCustomer" type="button" class="btn btn-primary">Add Customer
                                         </button>
                                         <button id="btnCloseCustomer" type="button" class="btn btn-primary">
                                             Close
                                         </button>
                                     </div>
                                 </div>
+
+                                <input type="hidden" id="buildingId" value="">
 
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
@@ -127,60 +128,17 @@
                     </div>
                     <!-- /.col -->
                     </form:form>
+                    <div class="form-group">
+
+                    </div>
+
+
                 </div><!-- /.row -->
-
-                <%-- <c:forEach items="${transaction}" var="item">
-                     <div class="form-group">
-
-                         <label class="col-sm-3 control-label no-padding-right">${item.nameTransaction}
-                             <button onclick="btnOpenModal('${item.codeTransaction}')"><i
-                                     class="fa fa-plus-square bigger-120" aria-hidden="true"></i></button>
-                         </label></div>
-                     <div>
-                         <table class="table table-dark"
-                                id="transaction_table_${item.codeTransaction}">
-                             <tr>
-                                 <th>Ngay tao</th>
-                                 <th>Ghi chu</th>
-                             </tr>
-                             <c:forEach var="i" items="${item.object}">
-                                 <tr>
-                                     <td>${i.createdDate}</td>
-                                     <td>${i.note}</td>
-                                 </tr>
-                             </c:forEach>
-                         </table>
-
-                     </div>
-                 </c:forEach>
-
- --%>
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->
 </div><!-- /.main-content -->
-<%--<div class="modal" id="transactionModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right">Note </label>
-
-                    <div class="col-sm-9">
-                        <textarea id="note" rows="4" cols="50"></textarea>
-                        &lt;%&ndash;<input id="note" type="text" value=""/>&ndash;%&gt;
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="btnAddNote" type="button" class="btn btn-primary">Luu</button>
-            </div>
-        </div>
-    </div>
-</div>--%>
-<%--<input type="hidden" id="code_transaction" value="">--%>
 <script>
-
     $('#btnAddCustomer').click(function () {
         var data = {};
         var formData = $('#formEdit').serializeArray();
@@ -204,45 +162,29 @@
         });
     });
     $("#btnCloseCustomer").click(function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         window.location = '/admin/customer-list';
     });
+    $('#uploadImage').change(function (event) {
+        var reader = new FileReader();
+        var file = $(this)[0].files[0];
+        reader.onload = function (e) {
+            imageBase64 = e.target.result;
+            imageName = file.name; // ten hinh khong dau, khoang cach. vd: a-b-c
+        };
+        reader.readAsDataURL(file);
+        openImage(this, "viewImage");
+    });
 
-    /* function btnOpenModal(code) {
-         $("#transactionModal").modal();
-         $('#code_transaction').val(code);
-     };
-     $("#btnAddNote").click(function (e) {
-         e.preventDefault();
-         var re = {};
-         var note = $('#note').val();
-         var customerId = $('#customerId').val();
-         re['code'] = $('#code_transaction').val();
-         re['note'] = note;
-         re['customerId'] = customerId;
-         $.ajax({
-             url: '/api/transaction',
-             type: 'POST',
-             contentType: "application/json",
-             data: JSON.stringify(re),
-             dataType: 'json',
-             success: function (response) {
-
-                 var table = document.getElementById("transaction_table_" + response.code);
-                 var row = table.insertRow(-1);
-                 var cell1 = row.insertCell(0);
-                 var cell2 = row.insertCell(1);
-                 cell1.innerHTML = "<td>" + response.createdDate + "</td>";
-                 cell2.innerHTML = "<td>" + response.note + "</td>";
-                 console.log(response);
-                 $("#transactionModal").modal('hide');
-                 $("#note").val("");
-             }
-         });
-
-     });*/
-
-
+    function openImage(input, imageView) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#' + imageView).attr('src', reader.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 </body>
 </html>

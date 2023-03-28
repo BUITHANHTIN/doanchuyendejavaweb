@@ -168,7 +168,7 @@
                                     <display:column headerClass="text-left" property="demand" title="Demand"/>
                                     <display:column headerClass="text-left" property="createdBy" title="Nguoi nhap"/>
                                     <display:column headerClass="text-left" property="createdDate" title="Ngay nhap"/>
-                                    <display:column headerClass="text-left" property="status" title="Tinh trang"/>
+                                    <display:column headerClass="text-left" property="fullName" title="Tinh trang"/>
 
                                     <display:column headerClass="col-actions" title="Thao tác">
                                         <button onclick="assingmentCustomer(${tableList.id})"

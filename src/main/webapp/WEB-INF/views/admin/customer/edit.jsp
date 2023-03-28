@@ -65,43 +65,7 @@
                                     <label class="col-sm-3 control-label no-padding-right"
                                     >Email</label>
                                     <div class="col-sm-9">
-                                        <input name="email" value="${customer.email}" type="text"
-                                               class="form-control"/>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Phone</label>
-                                    <div class="col-sm-9">
-                                        <input name="phone" value="${customer.phone}" type="number"
-                                               class="form-control"/>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Company</label>
-                                    <div class="col-sm-9">
-                                        <input name="company" value="${customer.company}" type="text"
-                                               class="form-control"/>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Demand</label>
-                                    <div class="col-sm-9">
-                                        <input name="demand" value="${customer.demand}" type="text"
-                                               class="form-control"/>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"
-                                    >Note</label>
-                                    <div class="col-sm-9">
-                                        <input name="note" value="${customer.note}" type="text"
+                                        <input name="ward" value="${customer.email}" type="text"
                                                class="form-control"/>
                                     </div>
 
