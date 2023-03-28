@@ -1,0 +1,25 @@
+package com.laptrinhjavaweb.security.utils;
+
+import com.laptrinhjavaweb.dto.MyUserDetail;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SecurityUtils {
+//lay các thong tin của user tru role-code
+    public static MyUserDetail getPrincipal() {
+        return (MyUserDetail) (SecurityContextHolder
+                .getContext()).getAuthentication().getPrincipal();
+    }
+    //lay các role-code
+    public static List<String> getAuthorities() {
+        List<String> results = new ArrayList<>();
+        List<GrantedAuthority> authorities = (List<GrantedAuthority>)(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+        for (GrantedAuthority authority : authorities) {
+            results.add(authority.getAuthority());
+        }
+        return results;
+    }
+}
