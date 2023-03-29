@@ -1,5 +1,7 @@
 package com.laptrinhjavaweb.controller.web;
 
+import com.laptrinhjavaweb.service.impl.BuildingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -14,30 +16,34 @@ import javax.servlet.http.HttpSession;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
+    @Autowired
+    BuildingService buildingService;
 
-	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	public ModelAndView homePage() {
-		ModelAndView mav = new ModelAndView("web/home");
-		return mav;
-	}
+    @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+    public ModelAndView homePage() {
+        ModelAndView mav = new ModelAndView("web/home");
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login() {
-		ModelAndView mav = new ModelAndView("login");
-		return mav;
-	}
+        mav.addObject("list3Building",buildingService.findByTop3Building());
+        return mav;
+    }
 
-	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
-	public ModelAndView accessDenied() {
-		return new ModelAndView("redirect:/login?accessDenied");
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView("login");
+        return mav;
+    }
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null) {
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return new ModelAndView("redirect:/trang-chu");
-	}
+    @RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+    public ModelAndView accessDenied() {
+        return new ModelAndView("redirect:/login?accessDenied");
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return new ModelAndView("redirect:/trang-chu");
+    }
 }

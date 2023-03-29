@@ -19,6 +19,7 @@ public interface BuildingRepositoryCustom {
 
     int countTotalItemFindConditionBuilding(BuildingSearchBuilder buildingDTO);
 
+    List<BuildingEntity> findByTop3Building();
 
 
 
