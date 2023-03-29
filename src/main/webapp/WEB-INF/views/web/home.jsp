@@ -12,8 +12,7 @@
 
 <section class="home-slider owl-carousel">
     <c:forEach var="item"  items="${list3Building}" >
-        <c:set var="imagePath" value="/repository${item.avatar}"></c:set>
-        <div class="slider-item" style="background-image:url(${item.avatar})">`
+        <div class="slider-item" style="background-image:url('/repository${item.avatar}')">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
