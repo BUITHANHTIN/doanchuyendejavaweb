@@ -20,4 +20,6 @@ public interface BuildingRepositoryCustom {
     int countTotalItemFindConditionBuilding(BuildingSearchBuilder buildingDTO);
 
 
+
+
 }
