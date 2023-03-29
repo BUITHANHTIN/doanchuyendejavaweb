@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
+import com.laptrinhjavaweb.entity.CustomerEntity;
 import com.laptrinhjavaweb.repository.custom.BuildingRepositoryCustom;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.utils.ObjectUtils;
@@ -66,6 +67,13 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         StringBuilder sql = buildQueryFindConditionFilter(buildingDTO);
         Query query = entityManager.createNativeQuery(sql.toString());
         return query.getResultList().size();
+    }
+
+    @Override
+    public List<BuildingEntity> findByTop3Building() {
+        String finalSql = "select * from estateadvance.building limit 3";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
     }
 
 

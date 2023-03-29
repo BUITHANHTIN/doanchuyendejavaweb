@@ -121,6 +121,18 @@ public class BuildingService implements IBuildingService {
     }
 
     @Override
+    public List<BuildingDTO> findByTop3Building() {
+        List<BuildingDTO> buildingDTOS = new ArrayList<>();
+        List<BuildingEntity> buildingEntities = buildingRepository.findByTop3Building();
+        for (BuildingEntity entity : buildingEntities) {
+
+            buildingDTOS.add(buildingConverter.convertToDto(entity));
+        }
+        return buildingDTOS;
+
+    }
+
+    @Override
     public BuildingDTO findByBuidingId(Long id) {
         BuildingEntity entity = buildingRepository.findOneById(id);
         BuildingDTO dto = buildingConverter.convertToDto(entity);

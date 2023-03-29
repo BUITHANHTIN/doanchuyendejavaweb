@@ -27,4 +27,5 @@ public interface IBuildingService {
     int countTotalItemFindAllBuilding();
 
     int countTotalItemFindConditionBuilding(BuildingSearchRequestDTO buildingDTO);
+    List<BuildingDTO> findByTop3Building();
 }
