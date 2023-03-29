@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
-		<a class="navbar-brand" href="index.html">Royal<span>estate</span></a>
+		<a class="navbar-brand" href="<c:url value="login.jsp" />">Royal<span>estate</span></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span> Menu
 		</button>
@@ -16,18 +16,18 @@
 				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 				<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-				<li class="nav-item cta"><a href="contact.html" class="nav-link ml-lg-2"><span class="icon-user"></span> Sign-In</a></li>
-				<li class="nav-item cta cta-colored"><a href="contact.html" class="nav-link"><span class="icon-pencil"></span> Sign-Up</a></li>
+
+				<security:authorize access = "isAnonymous()">
+					<li class="nav-item cta"><a href="<c:url value='/login'/>" class="nav-link ml-lg-2"><span class="icon-user"></span> Sign-In</a></li>
+					<li class="nav-item cta cta-colored"><a href="<c:url value='/login'/>" class="nav-link"><span class="icon-pencil"></span> Sign-Up</a></li>
+				</security:authorize>
+				<security:authorize access = "isAuthenticated()">
+					<li class="nav-item cta"><a class="nav-link" href="#">Wellcome <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
+					<li class="nav-item cta"><a class="nav-link" href="<c:url value='/logout'/>">Thoát</a></li>
+				</security:authorize>
 
 			</ul>
 		</div>
 	</div>
 </nav>
-				<security:authorize access = "isAnonymous()">
-					<li class="nav-item"><a class="nav-link" href="<c:url value='/login'/>">Đăng nhập</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng ký</a></li>
-				</security:authorize>
-				<security:authorize access = "isAuthenticated()">
-					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value='/logout'/>">Thoát</a></li>
-				</security:authorize>
+
