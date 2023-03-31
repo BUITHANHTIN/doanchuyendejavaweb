@@ -22,5 +22,7 @@ public interface BuildingRepositoryCustom {
     List<BuildingEntity> findByTop3Building();
 
 
+    List<BuildingEntity> recentsBuilding();
 
+    List<BuildingEntity> mostRecommendedBuilding();
 }

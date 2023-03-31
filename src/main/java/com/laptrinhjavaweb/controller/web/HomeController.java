@@ -22,8 +22,9 @@ public class HomeController {
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("web/home");
-
-        mav.addObject("list3Building",buildingService.findByTop3Building());
+        mav.addObject("recentsBuilding", buildingService.recentsBuilding());
+        mav.addObject("list3Building", buildingService.findByTop3Building());
+        mav.addObject("mostRecommendedBuilding",buildingService.mostRecommendedBuilding());
         return mav;
     }
 

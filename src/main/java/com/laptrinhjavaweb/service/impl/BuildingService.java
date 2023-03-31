@@ -131,6 +131,29 @@ public class BuildingService implements IBuildingService {
         return buildingDTOS;
 
     }
+    @Override
+    public List<BuildingDTO> recentsBuilding() {
+        List<BuildingDTO> buildingDTOS = new ArrayList<>();
+        List<BuildingEntity> buildingEntities = buildingRepository.recentsBuilding();
+        for (BuildingEntity entity : buildingEntities) {
+
+            buildingDTOS.add(buildingConverter.convertToDto(entity));
+        }
+        return buildingDTOS;
+
+    }
+
+    @Override
+    public List<BuildingDTO> mostRecommendedBuilding() {
+        List<BuildingDTO> buildingDTOS = new ArrayList<>();
+        List<BuildingEntity> buildingEntities = buildingRepository.mostRecommendedBuilding();
+        for (BuildingEntity entity : buildingEntities) {
+
+            buildingDTOS.add(buildingConverter.convertToDto(entity));
+        }
+        return buildingDTOS;
+
+    }
 
     @Override
     public BuildingDTO findByBuidingId(Long id) {

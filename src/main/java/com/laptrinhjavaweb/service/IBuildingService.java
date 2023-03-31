@@ -17,6 +17,11 @@ public interface IBuildingService {
     List<BuildingDTO> findByCondition(BuildingSearchRequestDTO buildingDTO, Pageable pageable);
 
 
+    List<BuildingDTO> recentsBuilding();
+
+
+    List<BuildingDTO> mostRecommendedBuilding();
+
     BuildingDTO findByBuidingId(Long id);
 
     void deleteByBuidingId(Long[] ids);

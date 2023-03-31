@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
-import com.laptrinhjavaweb.entity.CustomerEntity;
 import com.laptrinhjavaweb.repository.custom.BuildingRepositoryCustom;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.utils.ObjectUtils;
@@ -72,6 +71,20 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     @Override
     public List<BuildingEntity> findByTop3Building() {
         String finalSql = "select * from estateadvance.building limit 3";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<BuildingEntity> recentsBuilding(){
+        String finalSql = "select * from estateadvance.building limit 6";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<BuildingEntity> mostRecommendedBuilding() {
+        String finalSql = "select * from estateadvance.building ORDER BY id DESC  limit 4";
         Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
         return query.getResultList();
     }
