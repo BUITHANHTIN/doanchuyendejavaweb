@@ -1,6 +1,8 @@
 package com.laptrinhjavaweb.controller.web;
 
+import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.service.impl.BuildingService;
+import com.laptrinhjavaweb.service.impl.DistrictBuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,11 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
     @Autowired
     BuildingService buildingService;
+    @Autowired
+    DistrictBuildingService districtBuildingService;
 
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
@@ -28,9 +33,12 @@ public class HomeController {
         return mav;
     }
     @RequestMapping(value = "/property", method = RequestMethod.GET)
-    public ModelAndView propertyPage() {
+    public ModelAndView propertyPage(BuildingSearchRequestDTO buildingDTO) {
         ModelAndView mav = new ModelAndView("web/property");
+        Map<String, String> districtTypes = districtBuildingService.getDistrictMap();
         mav.addObject("showAllBuilding", buildingService.showAllBuilding());
+        mav.addObject("districtList", districtTypes);
+        mav.addObject("modelSearch", buildingDTO);
         return mav;
     }
 

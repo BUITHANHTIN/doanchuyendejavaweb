@@ -22,6 +22,12 @@ public class BuildingSearchRequestDTO extends AbstractDTO {
     private String[] buildingTypes;
     private String type;
 
+    private Integer bedroom;
+
+    private Integer bathroom;
+
+    private String description;
+
 
 
 
@@ -162,4 +168,27 @@ public class BuildingSearchRequestDTO extends AbstractDTO {
         this.buildingTypes = buildingTypes;
     }
 
+    public Integer getBedroom() {
+        return bedroom;
+    }
+
+    public void setBedroom(Integer bedroom) {
+        this.bedroom = bedroom;
+    }
+
+    public Integer getBathroom() {
+        return bathroom;
+    }
+
+    public void setBathroom(Integer bathroom) {
+        this.bathroom = bathroom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
