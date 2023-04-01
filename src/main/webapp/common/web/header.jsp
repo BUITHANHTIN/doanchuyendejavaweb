@@ -10,8 +10,8 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="property.html" class="nav-link">Property</a></li>
+				<li class="nav-item active"><a href="<c:url value='/trang-chu'/>" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="<c:url value='/property'/>" class="nav-link">Property</a></li>
 				<li class="nav-item"><a href="agents.html" class="nav-link">Agents</a></li>
 				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 				<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>

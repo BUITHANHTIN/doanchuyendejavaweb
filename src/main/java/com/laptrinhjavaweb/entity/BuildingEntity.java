@@ -65,6 +65,15 @@ public class BuildingEntity extends BaseEntity {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "bedroom")
+    private Integer bedroom;
+
+    @Column(name = "bathroom")
+    private Integer bathroom;
+
+    @Column(name = "description")
+    private String description;
+
     @OneToMany(mappedBy = "building", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     List<RentAreaEntity> rentAreas = new ArrayList<>();
 
@@ -304,5 +313,27 @@ public class BuildingEntity extends BaseEntity {
         this.rentAreas = rentAreas;
     }
 
+    public Integer getBedroom() {
+        return bedroom;
+    }
 
+    public void setBedroom(Integer bedroom) {
+        this.bedroom = bedroom;
+    }
+
+    public Integer getBathroom() {
+        return bathroom;
+    }
+
+    public void setBathroom(Integer bathroom) {
+        this.bathroom = bathroom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -43,6 +43,12 @@ public class BuildingDTO extends AbstractDTO {
     private String avatar;
     private String imageBase64;
     private String imageName;
+
+    private Integer bedroom;
+
+    private Integer bathroom;
+
+    private String description;
     public String getImageBase64() {
         if (imageBase64 != null) {
             return imageBase64.split(",")[1];
@@ -358,5 +364,27 @@ public class BuildingDTO extends AbstractDTO {
         this.buildingTypes = buildingTypes;
     }
 
+    public Integer getBedroom() {
+        return bedroom;
+    }
 
+    public void setBedroom(Integer bedroom) {
+        this.bedroom = bedroom;
+    }
+
+    public Integer getBathroom() {
+        return bathroom;
+    }
+
+    public void setBathroom(Integer bathroom) {
+        this.bathroom = bathroom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -89,7 +89,12 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         return query.getResultList();
     }
 
-
+    @Override
+    public List<BuildingEntity> showAllBuilding(){
+        String finalSql = "select * from estateadvance.building";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
     private void buildQueryWithJoin(BuildingSearchBuilder buildingDTO, StringBuilder joinQuery,
                                     StringBuilder whereQuery) {
         Integer areaFrom = ObjectUtils.getObject(buildingDTO.getAreaFrom(), Integer.class);

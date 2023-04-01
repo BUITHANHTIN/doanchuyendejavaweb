@@ -25,4 +25,6 @@ public interface BuildingRepositoryCustom {
     List<BuildingEntity> recentsBuilding();
 
     List<BuildingEntity> mostRecommendedBuilding();
+
+    List<BuildingEntity> showAllBuilding();
 }

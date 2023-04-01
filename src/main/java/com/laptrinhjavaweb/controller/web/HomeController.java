@@ -27,6 +27,13 @@ public class HomeController {
         mav.addObject("mostRecommendedBuilding",buildingService.mostRecommendedBuilding());
         return mav;
     }
+    @RequestMapping(value = "/property", method = RequestMethod.GET)
+    public ModelAndView propertyPage() {
+        ModelAndView mav = new ModelAndView("web/property");
+        mav.addObject("showAllBuilding", buildingService.showAllBuilding());
+        return mav;
+    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
