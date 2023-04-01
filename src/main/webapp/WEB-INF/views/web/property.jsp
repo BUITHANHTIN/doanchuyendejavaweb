@@ -1,4 +1,4 @@
-<%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -18,7 +18,8 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="<c:url value='/trang-chu'/>">Home</a></span> <span>Property</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="<c:url value='/trang-chu'/>">Home</a></span> <span>Property</span>
+                </p>
                 <h1 class="mb-3 bread">Property</h1>
             </div>
         </div>
@@ -86,10 +87,13 @@
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <form:select path="district"  id="" class="form-control">
-                                        <form:option value="" label="--District"/>
+                                    <%--<form:select path="district" class="form-control">
+                                        <form:option value="" label="--Chon quan--"/>
                                         <form:options items="${districtList}"/>
-                                    </form:select>
+
+                                    </form:select>--%>
+                                    <form:select items="${districtList}" multiple="false" path="district" class="form-control" />
+
                                 </div>
                             </div>
                         </div>
@@ -99,7 +103,7 @@
                 <div class="row">
                     <div class="col-md align-items-end">
                         <div class="form-group">
-                            <label >Location</label>
+                            <label>Location</label>
                             <div class="form-field">
                                 <div class="icon"><span class="icon-my_location"></span></div>
                                 <input value="${modelSearch.name}" name="name" type="text" id="name"
@@ -134,7 +138,7 @@
                     </div>
                     <div class="col-md align-items-end">
                         <div class="form-group">
-                            <label >Max Area</label>
+                            <label>Max Area</label>
                             <div class="form-field">
                                 <div class="icon"><span class="icon-my_location"></span></div>
                                 <input value="${modelSearch.areaTo}" name="areaTo" type="text"
