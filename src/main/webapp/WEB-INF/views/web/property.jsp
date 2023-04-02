@@ -81,46 +81,26 @@
                         </div>
                     </div>
 
+
+                </div>
+
+                <div class="row">
+
                     <div class="col-md align-items-end">
                         <div class="form-group">
                             <label>Quận</label>
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <%--<form:select path="district" class="form-control">
-                                        <form:option value="" label="--Chon quan--"/>
-                                        <form:options items="${districtList}"/>
+                                        <%--<form:select path="district" class="form-control">
+                                            <form:option value="" label="--Chon quan--"/>
+                                            <form:options items="${districtList}"/>
 
-                                    </form:select>--%>
-                                    <form:select items="${districtList}" multiple="false" path="district" class="form-control" />
+                                        </form:select>--%>
+                                    <form:select items="${districtList}" multiple="false" path="district"
+                                                 class="form-control"/>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md align-items-end">
-                        <div class="form-group">
-                            <label>Location</label>
-                            <div class="form-field">
-                                <div class="icon"><span class="icon-my_location"></span></div>
-                                <input value="${modelSearch.name}" name="name" type="text" id="name"
-                                       class="form-control"/>
-                                    <%--                                    <input type="text" class="form-control" placeholder="City/Locality Name" name="">--%>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md align-items-end">
-                        <div class="form-group">
-                            <label>Location</label>
-                            <div class="form-field">
-                                <div class="icon"><span class="icon-my_location"></span></div>
-                                <input value="${modelSearch.name}" name="name" type="text" id="name"
-                                       class="form-control"/>
-                                    <%--                                    <input type="text" class="form-control" placeholder="City/Locality Name" name="">--%>
                             </div>
                         </div>
                     </div>
@@ -151,7 +131,7 @@
                     <div class="col-md align-self-end">
                         <div class="form-group">
                             <div class="form-field">
-                                <input type="submit" value="Search" class="form-control btn btn-primary">
+                                <button id="btnSearch" class="form-control btn btn-primary">SEARCH</button>
                             </div>
                         </div>
                     </div>
@@ -163,7 +143,61 @@
     </div>
 </section>
 
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <display:table name="modelSearch.listResult" cellspacing="0" cellpadding="0"
+                           requestURI="${buildingListURL}" partialList="true" sort="external"
+                           size="${modelSearch.totalItems}" defaultsort="2" defaultorder="ascending"
+                           id="tableList"
+                           pagesize="${modelSearch.maxPageItems}"
+                           export="false"
+                           class="table table-fcv-ace table-striped table-bordered table-hover dataTable no-footer"
+                           style="margin: 3em 0 1.5em;">
+                <display:column title="<fieldset class='form-group'>
+												        <input type='checkbox'  id='checkAll' class='check-box-element'>
+												        </fieldset>" class="center select-cell"
+                                headerClass="center select-cell">
+                    <fieldset>
+                        <input type="hidden" id="id" class="id" value="${tableList.id }"/>
+                        <input type="checkbox" name="checkList" value="${tableList.id}"
+                               id="checkbox_${tableList.id}" class="check-box-element"/>
+                    </fieldset>
+                </display:column>
+                <display:column headerClass="text-left" property="name" title="Name"/>
+                <display:column headerClass="text-left" property="address" title="Address"/>
+                <display:column headerClass="text-left" property="floorArea" title="FloorArea"/>
+                <display:column headerClass="text-left" property="rentPriceDescription"
+                                title="Rent Price Description"/>
+                <display:column headerClass="text-left" property="rentPrice" title="Rent Price"/>
+                <display:column headerClass="text-left" property="type" title="Types"/>
+                <display:column headerClass="text-left" property="numberOfBasement"
+                                title="Number Of Basement"/>
+                <display:column headerClass="text-left" property="rentArea" title="Rental Area"/>
 
+
+                <display:column headerClass="col-actions" title="Thao tác">
+                    <button onclick="assingmentBuilding(${tableList.id})"
+                            class="btn btn-xs btn-success">
+                        <i class="ace-icon fa fa-bars bigger-120"></i>
+                    </button>
+                    <a href='<c:url value="${buildingUpadteURL}?buildingId=${tableList.id}"/>'><i
+                            class="fa fa-pencil-square bigger-120" aria-hidden="true"></i></a>
+                    <%-- <c:if test="${tableList.roleCode != 'MANAGER'}">
+                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+                            title="Cập nhật người dùng"
+                            href='<c:url value="/admin/user-edit-${tableList.id}"/>'>
+                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                         </a>
+                     </c:if>
+                     <c:if test="${tableList.roleCode == 'STAFF'}">
+                         <p>Không đươc thao tác</p>
+                     </c:if>--%>
+                </display:column>
+            </display:table>
+        </div>
+    </div>
+</div>
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
@@ -218,4 +252,11 @@
     </div>
 </section>
 </body>
+<script>
+    $("#btnSearch").click(function (e) {
+        e.preventDefault();
+        $("#listForm").submit();
+
+    });
+</script>
 </html>

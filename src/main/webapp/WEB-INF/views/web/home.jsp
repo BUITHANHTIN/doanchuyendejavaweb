@@ -177,7 +177,7 @@
 </section>
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
-    <div class="container">
+    <div class="container" >
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
                 <h2 class="mb-4">Some fun facts</h2>

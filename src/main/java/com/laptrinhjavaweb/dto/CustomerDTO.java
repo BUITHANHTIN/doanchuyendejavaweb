@@ -11,6 +11,16 @@ public class CustomerDTO extends AbstractDTO {
     private String note;
     private String status;
 
+    private String avatar;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public String getStatus() {
         return status;
     }

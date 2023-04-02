@@ -2,6 +2,7 @@ package com.laptrinhjavaweb.controller.web;
 
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.service.impl.BuildingService;
+import com.laptrinhjavaweb.service.impl.CustomerService;
 import com.laptrinhjavaweb.service.impl.DistrictBuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -24,14 +25,19 @@ public class HomeController {
     @Autowired
     DistrictBuildingService districtBuildingService;
 
+    @Autowired
+    CustomerService customerService;
+
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("web/home");
+        mav.addObject("showAllBuilding", buildingService.showAllBuilding());
         mav.addObject("recentsBuilding", buildingService.recentsBuilding());
         mav.addObject("list3Building", buildingService.findByTop3Building());
-        mav.addObject("mostRecommendedBuilding",buildingService.mostRecommendedBuilding());
+        mav.addObject("mostRecommendedBuilding", buildingService.mostRecommendedBuilding());
         return mav;
     }
+
     @RequestMapping(value = "/property", method = RequestMethod.GET)
     public ModelAndView propertyPage(BuildingSearchRequestDTO buildingDTO) {
         ModelAndView mav = new ModelAndView("web/property");
@@ -39,6 +45,32 @@ public class HomeController {
         mav.addObject("showAllBuilding", buildingService.showAllBuilding());
         mav.addObject("districtList", districtTypes);
         mav.addObject("modelSearch", buildingDTO);
+        return mav;
+    }
+
+    @RequestMapping(value = "/agents", method = RequestMethod.GET)
+    public ModelAndView agentsPage() {
+        ModelAndView mav = new ModelAndView("web/agents");
+        mav.addObject("showAllCustommer", customerService.showAllCustommer());
+        return mav;
+    }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public ModelAndView aboutPage() {
+        ModelAndView mav = new ModelAndView("web/about");
+        return mav;
+    }
+
+    @RequestMapping(value = "/blog", method = RequestMethod.GET)
+    public ModelAndView blogPage() {
+        ModelAndView mav = new ModelAndView("web/blog");
+        return mav;
+    }
+
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView contactPage() {
+        ModelAndView mav = new ModelAndView("web/contact");
         return mav;
     }
 

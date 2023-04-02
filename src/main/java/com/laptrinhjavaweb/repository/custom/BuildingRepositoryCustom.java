@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.repository.custom;
 
 import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.entity.BuildingEntity;
+import com.laptrinhjavaweb.entity.CustomerEntity;
 import org.springframework.data.domain.Pageable;
 
 
@@ -27,4 +28,5 @@ public interface BuildingRepositoryCustom {
     List<BuildingEntity> mostRecommendedBuilding();
 
     List<BuildingEntity> showAllBuilding();
+
 }

@@ -6,6 +6,8 @@ import com.laptrinhjavaweb.repository.custom.BuildingRepositoryCustom;
 import com.laptrinhjavaweb.repository.custom.CustomerRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long>, CustomerRepositoryCustom {
     void deleteById(Long id);
 
@@ -15,4 +17,5 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long>,
 
     Long countByIdIn(Long[] id);
 
+    List<CustomerEntity> showAllCustommer();
 }

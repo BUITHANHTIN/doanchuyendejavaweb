@@ -134,6 +134,17 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public List<CustomerDTO> showAllCustommer() {
+        List<CustomerDTO> customerDTOS = new ArrayList<>();
+        List<CustomerEntity> customerEntities = customerRepository.showAllCustommer();
+        for (CustomerEntity entity : customerEntities) {
+
+            customerDTOS.add(customerConverter.convertToDto(entity));
+        }
+        return customerDTOS;
+    }
+
+    @Override
     public CustomerDTO findById(Long id) {
         CustomerEntity entity = customerRepository.findOneById(id);
         CustomerDTO dto = customerConverter.convertToDto(entity);
