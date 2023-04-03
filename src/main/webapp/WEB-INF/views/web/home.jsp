@@ -101,7 +101,7 @@
                     <c:forEach var="item" items="${recentsBuilding}">
                         <div class="item">
                             <div class="properties">
-                                <a href="#" class="img d-flex justify-content-center align-items-center"
+                                <a href="<c:url value="/property-single?id=${item.id}" />" class="img d-flex justify-content-center align-items-center"
                                    style="background-image: url(${item.avatar});">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-search2"></span>

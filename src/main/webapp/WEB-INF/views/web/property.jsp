@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:url var="propertyURL" value='/property'/>
 <%--
   Created by IntelliJ IDEA.
   User: AN515-43
@@ -145,57 +147,7 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="table-responsive">
-            <display:table name="modelSearch.listResult" cellspacing="0" cellpadding="0"
-                           requestURI="${buildingListURL}" partialList="true" sort="external"
-                           size="${modelSearch.totalItems}" defaultsort="2" defaultorder="ascending"
-                           id="tableList"
-                           pagesize="${modelSearch.maxPageItems}"
-                           export="false"
-                           class="table table-fcv-ace table-striped table-bordered table-hover dataTable no-footer"
-                           style="margin: 3em 0 1.5em;">
-                <display:column title="<fieldset class='form-group'>
-												        <input type='checkbox'  id='checkAll' class='check-box-element'>
-												        </fieldset>" class="center select-cell"
-                                headerClass="center select-cell">
-                    <fieldset>
-                        <input type="hidden" id="id" class="id" value="${tableList.id }"/>
-                        <input type="checkbox" name="checkList" value="${tableList.id}"
-                               id="checkbox_${tableList.id}" class="check-box-element"/>
-                    </fieldset>
-                </display:column>
-                <display:column headerClass="text-left" property="name" title="Name"/>
-                <display:column headerClass="text-left" property="address" title="Address"/>
-                <display:column headerClass="text-left" property="floorArea" title="FloorArea"/>
-                <display:column headerClass="text-left" property="rentPriceDescription"
-                                title="Rent Price Description"/>
-                <display:column headerClass="text-left" property="rentPrice" title="Rent Price"/>
-                <display:column headerClass="text-left" property="type" title="Types"/>
-                <display:column headerClass="text-left" property="numberOfBasement"
-                                title="Number Of Basement"/>
-                <display:column headerClass="text-left" property="rentArea" title="Rental Area"/>
 
-
-                <display:column headerClass="col-actions" title="Thao tác">
-                    <button onclick="assingmentBuilding(${tableList.id})"
-                            class="btn btn-xs btn-success">
-                        <i class="ace-icon fa fa-bars bigger-120"></i>
-                    </button>
-                    <a href='<c:url value="${buildingUpadteURL}?buildingId=${tableList.id}"/>'><i
-                            class="fa fa-pencil-square bigger-120" aria-hidden="true"></i></a>
-                    <%-- <c:if test="${tableList.roleCode != 'MANAGER'}">
-                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                            title="Cập nhật người dùng"
-                            href='<c:url value="/admin/user-edit-${tableList.id}"/>'>
-                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                         </a>
-                     </c:if>
-                     <c:if test="${tableList.roleCode == 'STAFF'}">
-                         <p>Không đươc thao tác</p>
-                     </c:if>--%>
-                </display:column>
-            </display:table>
-        </div>
     </div>
 </div>
 <section class="ftco-section bg-light">
@@ -211,6 +163,62 @@
                                 <span class="icon-search2"></span>
                             </div>
                         </a>
+
+                        <div class="table-responsive">
+                            <display:table name="modelSearch.listResult" cellspacing="0" cellpadding="0"
+                                           requestURI= "${propertyURL}" partialList="true" sort="external"
+                                           size="${modelSearch.totalItems}" defaultsort="2" defaultorder="ascending"
+                                           id="tableList"
+                                           pagesize="${modelSearch.maxPageItems}"
+                                           export="false"
+                                           class="table table-fcv-ace table-striped table-bordered table-hover dataTable no-footer"
+                                           style="margin: 3em 0 1.5em;">
+                                <display:column title="<fieldset class='form-group'>
+												        <input type='checkbox'  id='checkAll' class='check-box-element'>
+												        </fieldset>" class="center select-cell"
+                                                headerClass="center select-cell">
+                                    <fieldset>
+                                        <input type="hidden" id="id" class="id" value="${tableList.id }"/>
+                                        <input type="checkbox" name="checkList" value="${tableList.id}"
+                                               id="checkbox_${tableList.id}" class="check-box-element"/>
+                                    </fieldset>
+                                </display:column>
+                                <display:column headerClass="text-left" property="name" title="Name"/>
+                                <display:column headerClass="text-left" property="address" title="Address"/>
+                                <display:column headerClass="text-left" property="floorArea" title="FloorArea"/>
+                                <display:column headerClass="text-left" property="rentPriceDescription"
+                                                title="Rent Price Description"/>
+                                <display:column headerClass="text-left" property="rentPrice" title="Rent Price"/>
+                                <display:column headerClass="text-left" property="type" title="Types"/>
+                                <display:column headerClass="text-left" property="numberOfBasement"
+                                                title="Number Of Basement"/>
+                                <display:column headerClass="text-left" property="rentArea" title="Rental Area"/>
+
+
+                                <display:column headerClass="col-actions" title="Thao tác">
+                                    <button onclick="assingmentBuilding(${tableList.id})"
+                                            class="btn btn-xs btn-success">
+                                        <i class="ace-icon fa fa-bars bigger-120"></i>
+                                    </button>
+                                    <a href='<c:url value="${buildingUpadteURL}?buildingId=${tableList.id}"/>'><i
+                                            class="fa fa-pencil-square bigger-120" aria-hidden="true"></i></a>
+                                    <%-- <c:if test="${tableList.roleCode != 'MANAGER'}">
+                                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+                                            title="Cập nhật người dùng"
+                                            href='<c:url value="/admin/user-edit-${tableList.id}"/>'>
+                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                         </a>
+                                     </c:if>
+                                     <c:if test="${tableList.roleCode == 'STAFF'}">
+                                         <p>Không đươc thao tác</p>
+                                     </c:if>--%>
+                                </display:column>
+                            </display:table>
+                        </div>
+
+
+
+
                         <div class="text p-3">
                             <span class="status sale">Sale</span>
                             <div class="d-flex">

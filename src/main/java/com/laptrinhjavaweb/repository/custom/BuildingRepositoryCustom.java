@@ -29,4 +29,5 @@ public interface BuildingRepositoryCustom {
 
     List<BuildingEntity> showAllBuilding();
 
+
 }

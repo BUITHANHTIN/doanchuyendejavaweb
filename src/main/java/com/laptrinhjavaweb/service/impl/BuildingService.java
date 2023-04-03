@@ -143,6 +143,13 @@ public class BuildingService implements IBuildingService {
         return buildingDTOS;
     }
 
+    @Override
+    public BuildingDTO findById(Long id) {
+        BuildingEntity buildingEntity = buildingRepository.findOneById(id);
+
+        return buildingConverter.convertToDto(buildingEntity);
+    }
+
 
     @Override
     public List<BuildingDTO> recentsBuilding() {

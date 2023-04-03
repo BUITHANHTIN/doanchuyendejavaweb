@@ -95,6 +95,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
         return query.getResultList();
     }
+
     private void buildQueryWithJoin(BuildingSearchBuilder buildingDTO, StringBuilder joinQuery,
                                     StringBuilder whereQuery) {
         Integer areaFrom = ObjectUtils.getObject(buildingDTO.getAreaFrom(), Integer.class);
