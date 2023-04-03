@@ -58,6 +58,18 @@ public class BuildingService implements IBuildingService {
 
     }
 
+    @Override
+    public List<BuildingDTO> findAllProperty(Pageable pageable) {
+        List<BuildingEntity> buildingEntityList = buildingRepository.listAll(pageable);
+        List<BuildingDTO> buildingDTOList = new ArrayList<>();
+        for (BuildingEntity entity : buildingEntityList) {
+            BuildingDTO buildingDTO = buildingConverter.convertToDto(entity);
+            buildingDTOList.add(buildingDTO);
+        }
+        return buildingDTOList;
+
+    }
+
     public boolean isManager(List<RoleEntity> list) {
         for (RoleEntity entity : list) {
             if (entity.getCode().equals(SystemConstant.MANAGER_ROLE)) {
@@ -106,6 +118,12 @@ public class BuildingService implements IBuildingService {
             countBuilding = userEntity.getBuildings().size();
         }
         return countBuilding;
+
+    }
+
+    @Override
+    public int countTotalItemFindAllBuildingOfProperty() {
+        return buildingRepository.countTotalItemFindAllBuilding();
 
     }
 

@@ -49,8 +49,8 @@ public class HomeController {
         //phan trang
         DisplayTagUtils.of(request, buildingDTO);
 
-        buildingDTO.setListResult(buildingService.findAll(new PageRequest(buildingDTO.getPage() - 1, buildingDTO.getMaxPageItems())));
-        buildingDTO.setTotalItems(buildingService.countTotalItemFindAllBuilding());
+        buildingDTO.setListResult(buildingService.findAllProperty(new PageRequest(buildingDTO.getPage() - 1, buildingDTO.getMaxPageItems())));
+        buildingDTO.setTotalItems(buildingService.countTotalItemFindAllBuildingOfProperty());
 
         mav.addObject("modelSearch", buildingDTO);
         mav.addObject("showAllBuilding", buildingService.showAllBuilding());

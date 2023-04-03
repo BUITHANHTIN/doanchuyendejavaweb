@@ -32,9 +32,14 @@ public interface IBuildingService {
     int countTotalItemFindAllBuilding();
 
     int countTotalItemFindConditionBuilding(BuildingSearchRequestDTO buildingDTO);
+
     List<BuildingDTO> findByTop3Building();
 
     List<BuildingDTO> showAllBuilding();
 
     BuildingDTO findById(Long id);
+
+    public List<BuildingDTO> findAllProperty(Pageable pageable);
+
+    public int countTotalItemFindAllBuildingOfProperty();
 }
