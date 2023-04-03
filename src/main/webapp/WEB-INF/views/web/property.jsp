@@ -1,6 +1,6 @@
 <%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@include file="/common/taglib.jsp" %>
 <c:url var="propertyURL" value='/property'/>
 <%--
   Created by IntelliJ IDEA.
@@ -145,16 +145,13 @@
     </div>
 </section>
 
-<div class="row">
-    <div class="col-xs-12">
 
-    </div>
 </div>
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
-            <c:forEach var="item" items="${showAllBuilding}">
-                <div class="col-md-4 ftco-animate">
+
+               <%-- <div class="col-md-4 ftco-animate">
                     <div class="properties">
                         <a href="property-single.html"
                            class="img img-2 d-flex justify-content-center align-items-center"
@@ -163,6 +160,7 @@
                                 <span class="icon-search2"></span>
                             </div>
                         </a>
+--%>
 
                         <div class="table-responsive">
                             <display:table name="modelSearch.listResult" cellspacing="0" cellpadding="0"
@@ -218,7 +216,7 @@
 
 
 
-
+<%--
                         <div class="text p-3">
                             <span class="status sale">Sale</span>
                             <div class="d-flex">
@@ -240,23 +238,9 @@
                         </div>
                     </div>
                 </div>
-            </c:forEach>
+            </c:forEach>--%>
         </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
     </div>
 </section>
 </body>
