@@ -101,7 +101,7 @@
                     <c:forEach var="item" items="${recentsBuilding}">
                         <div class="item">
                             <div class="properties">
-                                <a href="#" class="img d-flex justify-content-center align-items-center"
+                                <a href="<c:url value="/property-single?id=${item.id}" />" class="img d-flex justify-content-center align-items-center"
                                    style="background-image: url(${item.avatar});">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-search2"></span>
@@ -177,7 +177,7 @@
 </section>
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
-    <div class="container">
+    <div class="container" >
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
                 <h2 class="mb-4">Some fun facts</h2>

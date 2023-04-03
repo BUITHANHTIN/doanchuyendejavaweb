@@ -4,6 +4,7 @@ import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
+import com.laptrinhjavaweb.dto.CustomerDTO;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.entity.*;
 import com.laptrinhjavaweb.repository.*;
@@ -34,7 +35,6 @@ public class BuildingService implements IBuildingService {
     private RentAreaRepository rentAreaRepository;
     @Autowired
     private UploadFileUtils uploadFileUtils;
-
 
     @Autowired
     private BuildingConverter buildingConverter;
@@ -143,6 +143,13 @@ public class BuildingService implements IBuildingService {
         return buildingDTOS;
     }
 
+    @Override
+    public BuildingDTO findById(Long id) {
+        BuildingEntity buildingEntity = buildingRepository.findOneById(id);
+
+        return buildingConverter.convertToDto(buildingEntity);
+    }
+
 
     @Override
     public List<BuildingDTO> recentsBuilding() {
@@ -174,6 +181,7 @@ public class BuildingService implements IBuildingService {
         BuildingDTO dto = buildingConverter.convertToDto(entity);
         return dto;
     }
+
 
     @Override
     @Transactional

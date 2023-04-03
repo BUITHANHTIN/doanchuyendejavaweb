@@ -33,7 +33,7 @@
           <div class="col-md-12 ftco-animate">
             <div class="single-slider owl-carousel">
               <div class="item">
-                <div class="properties-img" style="background-image: url(images/properties-1.jpg);"></div>
+                <div class="properties-img" style="background-image: url(${model.avatar});"></div>
               </div>
               <div class="item">
                 <div class="properties-img" style="background-image: url(images/properties-2.jpg);"></div>

@@ -12,10 +12,10 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a href="<c:url value='/trang-chu'/>" class="nav-link">Home</a></li>
 				<li class="nav-item"><a href="<c:url value='/property'/>" class="nav-link">Property</a></li>
-				<li class="nav-item"><a href="agents.html" class="nav-link">Agents</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-				<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+				<li class="nav-item"><a href="<c:url value='/agents'/>" class="nav-link">Agents</a></li>
+				<li class="nav-item"><a href="<c:url value='/about'/>" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="<c:url value='/blog'/>" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="<c:url value='/contact'/>" class="nav-link">Contact</a></li>
 
 				<security:authorize access = "isAnonymous()">
 					<li class="nav-item cta"><a href="<c:url value='/login'/>" class="nav-link ml-lg-2"><span class="icon-user"></span> Sign-In</a></li>

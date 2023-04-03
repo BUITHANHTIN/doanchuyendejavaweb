@@ -35,4 +35,6 @@ public interface IBuildingService {
     List<BuildingDTO> findByTop3Building();
 
     List<BuildingDTO> showAllBuilding();
+
+    BuildingDTO findById(Long id);
 }

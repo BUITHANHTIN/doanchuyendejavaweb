@@ -24,4 +24,6 @@ public interface ICustomerService {
     int countTotalItemFindAllCustomer();
 
     int countTotalItemFindConditionCustomer(CustomerSearchRequestDTO dto);
+
+    List<CustomerDTO> showAllCustommer();
 }

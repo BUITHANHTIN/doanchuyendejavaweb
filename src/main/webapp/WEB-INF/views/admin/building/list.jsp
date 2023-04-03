@@ -204,20 +204,20 @@
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label >Chon nhan vien phu trach</label>
+                                                    <label>Chon nhan vien phu trach</label>
                                                     <form:select path="staffInCharge">
                                                         <form:option value="" label="--Chon nhan vien"/>
-                                                        <form:options  items="${userList}"/>
+                                                        <form:options items="${userList}"/>
                                                     </form:select>
-                                                    <%--<select name="staffInCharge" id="staff"--%>
-                                                            <%--aria-label="Default select example">--%>
+                                                        <%--<select name="staffInCharge" id="staff"--%>
+                                                        <%--aria-label="Default select example">--%>
                                                         <%--<option selected value="">Chon nhan vien phu trach</option>--%>
                                                         <%--<c:forEach var="item" items="${userList}">--%>
-                                                            <%--<option--%>
-                                                                    <%--<c:if test="${modelSearch.staffInCharge==item.id}">selected</c:if>--%>
-                                                                    <%--value="${item.id}">${item.fullName}</option>--%>
+                                                        <%--<option--%>
+                                                        <%--<c:if test="${modelSearch.staffInCharge==item.id}">selected</c:if>--%>
+                                                        <%--value="${item.id}">${item.fullName}</option>--%>
                                                         <%--</c:forEach>--%>
-                                                    <%--</select>--%>
+                                                        <%--</select>--%>
 
                                                 </div>
 
@@ -225,7 +225,8 @@
                                             </div><!-- /.col -->
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <form:checkboxes  element="br" path="buildingTypes" items="${typeList}"/>
+                                                    <form:checkboxes element="br" path="buildingTypes"
+                                                                     items="${typeList}"/>
                                                         <%--<c:forEach var="item" items="${typeList}">--%>
                                                         <%--<div class="form-check form-check-inline">--%>
                                                         <%--<input ${item.selected} name="buildingTypes"--%>
