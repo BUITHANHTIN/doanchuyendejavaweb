@@ -39,31 +39,14 @@ public class HomeController {
         mav.addObject("recentsBuilding", buildingService.recentsBuilding());
         mav.addObject("list3Building", buildingService.findByTop3Building());
         mav.addObject("mostRecommendedBuilding", buildingService.mostRecommendedBuilding());
-        return mav;
-    }
-
-    @RequestMapping(value = "/property", method = RequestMethod.GET)
-    public ModelAndView propertyPage(BuildingSearchRequestDTO buildingDTO, HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("web/property");
-        Map<String, String> districtTypes = districtBuildingService.getDistrictMap();
-        //phan trang
-        DisplayTagUtils.of(request, buildingDTO);
-
-        buildingDTO.setListResult(buildingService.findAllProperty(new PageRequest(buildingDTO.getPage() - 1, buildingDTO.getMaxPageItems())));
-        buildingDTO.setTotalItems(buildingService.countTotalItemFindAllBuildingOfProperty());
-
-        mav.addObject("modelSearch", buildingDTO);
-        mav.addObject("showAllBuilding", buildingService.showAllBuilding());
-        mav.addObject("districtList", districtTypes);
-        mav.addObject("modelSearch", buildingDTO);
-
+        mav.addObject("countBuilding",buildingService.countTotalItemFindAllBuildingOfProperty());
+        mav.addObject("countCustomer",customerService.countTotalCustomer());
         return mav;
     }
 
     @RequestMapping(value = "/agents", method = RequestMethod.GET)
     public ModelAndView agentsPage() {
         ModelAndView mav = new ModelAndView("web/agents");
-        mav.addObject("showAllCustommer", customerService.showAllCustommer());
         return mav;
     }
 

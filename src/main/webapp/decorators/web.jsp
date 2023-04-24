@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Trang chủ</title>
+<%--    <title>Trang chủ</title>--%>
 
     <!-- Bootstrap core CSS -->
 

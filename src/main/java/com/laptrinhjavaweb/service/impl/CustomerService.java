@@ -145,6 +145,11 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public int countTotalCustomer() {
+        return customerRepository.countTotalItemFindAllCustomer();
+    }
+
+    @Override
     public CustomerDTO findById(Long id) {
         CustomerEntity entity = customerRepository.findOneById(id);
         CustomerDTO dto = customerConverter.convertToDto(entity);
