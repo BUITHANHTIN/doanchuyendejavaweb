@@ -184,6 +184,25 @@
                 </div>
 <%--                <display:table name="modelSearch.listResult"></display:table>--%>
             </c:forEach>
+            <ul class="pagination">
+                <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
+                    <a class="page-link" href="?page=${currentPage - 1}&size=${pageSize}&sort=${sortBy}">
+                        Previous
+                    </a>
+                </li>
+                <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
+                    <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
+                        <a class="page-link" href="?page=${loop.index}&size=${pageSize}&sort=${sortBy}">
+                                ${loop.index+1}
+                        </a>
+                    </li>
+                </c:forEach>
+                <li class="page-item ${currentPage == totalPages-1 ? 'disabled' : ''}">
+                    <a class="page-link" href="?page=${currentPage + 1}&size=${pageSize}&sort=${sortBy}">
+                        Next
+                    </a>
+                </li>
+            </ul>
 
 <%--            <div class="col text-center">--%>
 <%--                <div class="block-27">--%>

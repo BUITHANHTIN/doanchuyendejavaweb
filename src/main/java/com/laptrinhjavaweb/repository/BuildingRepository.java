@@ -13,4 +13,5 @@ public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>,
 
     Long countByIdIn(Long[] id);
 
+
 }

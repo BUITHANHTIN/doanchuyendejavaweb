@@ -4,7 +4,6 @@ import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
-import com.laptrinhjavaweb.dto.CustomerDTO;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.entity.*;
 import com.laptrinhjavaweb.repository.*;
@@ -14,6 +13,7 @@ import com.laptrinhjavaweb.utils.UploadFileUtils;
 import javassist.NotFoundException;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -125,6 +125,12 @@ public class BuildingService implements IBuildingService {
     public int countTotalItemFindAllBuildingOfProperty() {
         return buildingRepository.countTotalItemFindAllBuilding();
 
+    }
+
+    @Override
+    public Page<BuildingEntity> listAllBuildingForPaging(Pageable pageable) {
+
+        return buildingRepository.findAll(pageable);
     }
 
     @Override

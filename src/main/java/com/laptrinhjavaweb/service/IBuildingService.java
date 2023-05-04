@@ -2,14 +2,12 @@ package com.laptrinhjavaweb.service;
 
 import com.laptrinhjavaweb.dto.BuildingDTO;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
-import com.laptrinhjavaweb.dto.RoleDTO;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Map;
 
 public interface IBuildingService {
     List<BuildingDTO> findAll(Pageable pageable);
@@ -42,6 +40,8 @@ public interface IBuildingService {
     public List<BuildingDTO> findAllProperty(Pageable pageable);
 
     public int countTotalItemFindAllBuildingOfProperty();
+
+    Page<BuildingEntity> listAllBuildingForPaging(Pageable pageable);
 
 
 }
