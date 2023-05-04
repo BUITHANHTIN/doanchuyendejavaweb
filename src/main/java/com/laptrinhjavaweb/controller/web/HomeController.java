@@ -7,13 +7,17 @@ import com.laptrinhjavaweb.service.impl.CustomerService;
 import com.laptrinhjavaweb.service.impl.DistrictBuildingService;
 import com.laptrinhjavaweb.utils.DisplayTagUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,19 +47,30 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/property", method = RequestMethod.GET)
-    public ModelAndView propertyPage(BuildingSearchRequestDTO buildingDTO, HttpServletRequest request) {
+    public ModelAndView propertyPage(@RequestParam(defaultValue = "0") int page,
+                                     @RequestParam(defaultValue = "10") int size,
+                                     @RequestParam(defaultValue = "id") String sortBy) {
         ModelAndView mav = new ModelAndView("web/property");
         Map<String, String> districtTypes = districtBuildingService.getDistrictMap();
         //phan trang
-        DisplayTagUtils.of(request, buildingDTO);
 
-        buildingDTO.setListResult(buildingService.findAllProperty(new PageRequest(buildingDTO.getPage() - 1, buildingDTO.getMaxPageItems())));
-        buildingDTO.setTotalItems(buildingService.countTotalItemFindAllBuildingOfProperty());
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        Page<BuildingDTO> buildingDTO = buildingService.findAllPage(pageable);
+        int totalPages = buildingDTO.getTotalPages();
+        int currentPage = buildingDTO.getNumber();
 
-        mav.addObject("modelSearch", buildingDTO);
+        int startItem = currentPage * size;
+        int endItem = (int) Math.min(startItem + size, buildingDTO.getTotalElements());
+        mav.addObject("totalPages", totalPages);
+        mav.addObject("currentPage", currentPage);
+        mav.addObject("startItem", startItem);
+        mav.addObject("endItem", endItem);
+        mav.addObject("totalItems", buildingDTO.getTotalElements());
+        mav.addObject("model",  buildingDTO.getContent());
+
         mav.addObject("showAllBuilding", buildingService.showAllBuilding());
         mav.addObject("districtList", districtTypes);
-        mav.addObject("modelSearch", buildingDTO);
+        /*mav.addObject("modelSearch", buildingDTO);*/
 
         return mav;
     }

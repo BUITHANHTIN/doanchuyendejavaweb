@@ -30,6 +30,12 @@ public class UserAPI {
         return ResponseEntity.ok(userService.update(id, userDTO));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> findOneById(@PathVariable("id") long id) {
+        return ResponseEntity.ok(userService.findUserById(id));
+
+    }
+
     @PutMapping("/change-password/{id}")
     public ResponseEntity<String> changePasswordUser(@PathVariable("id") long id, @RequestBody PasswordDTO passwordDTO) {
         try {

@@ -43,7 +43,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             url = SystemConstant.ADMIN_HOME;
         }
         return url;
-    }
+    }   
 
     public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
         this.redirectStrategy = redirectStrategy;

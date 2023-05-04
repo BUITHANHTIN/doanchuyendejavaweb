@@ -39,7 +39,5 @@ public interface IBuildingService {
 
     BuildingDTO findById(Long id);
 
-    public List<BuildingDTO> findAllProperty(Pageable pageable);
-
-    public int countTotalItemFindAllBuildingOfProperty();
+    Page<BuildingDTO> findAllPage(Pageable pageable);
 }

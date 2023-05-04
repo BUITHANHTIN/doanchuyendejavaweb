@@ -14,6 +14,7 @@ import com.laptrinhjavaweb.utils.UploadFileUtils;
 import javassist.NotFoundException;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,17 +59,6 @@ public class BuildingService implements IBuildingService {
 
     }
 
-    @Override
-    public List<BuildingDTO> findAllProperty(Pageable pageable) {
-        List<BuildingEntity> buildingEntityList = buildingRepository.listAll(pageable);
-        List<BuildingDTO> buildingDTOList = new ArrayList<>();
-        for (BuildingEntity entity : buildingEntityList) {
-            BuildingDTO buildingDTO = buildingConverter.convertToDto(entity);
-            buildingDTOList.add(buildingDTO);
-        }
-        return buildingDTOList;
-
-    }
 
     public boolean isManager(List<RoleEntity> list) {
         for (RoleEntity entity : list) {
@@ -121,11 +111,6 @@ public class BuildingService implements IBuildingService {
 
     }
 
-    @Override
-    public int countTotalItemFindAllBuildingOfProperty() {
-        return buildingRepository.countTotalItemFindAllBuilding();
-
-    }
 
     @Override
     public int countTotalItemFindConditionBuilding(BuildingSearchRequestDTO buildingDTO) {
@@ -166,6 +151,11 @@ public class BuildingService implements IBuildingService {
         BuildingEntity buildingEntity = buildingRepository.findOneById(id);
 
         return buildingConverter.convertToDto(buildingEntity);
+    }
+
+    @Override
+    public Page<BuildingDTO> findAllPage(Pageable pageable) {
+        return buildingConverter.convertToPageDTO(buildingRepository.findAll(pageable));
     }
 
 

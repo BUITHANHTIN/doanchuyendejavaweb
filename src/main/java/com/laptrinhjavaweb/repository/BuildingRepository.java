@@ -2,6 +2,8 @@ package com.laptrinhjavaweb.repository;
 
 import com.laptrinhjavaweb.repository.custom.BuildingRepositoryCustom;
 import com.laptrinhjavaweb.entity.BuildingEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>, BuildingRepositoryCustom {
@@ -12,5 +14,7 @@ public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>,
     void deleteByIdIn(Long[] buildingId);
 
     Long countByIdIn(Long[] id);
+
+    Page<BuildingEntity> findAll(Pageable pageable);
 
 }

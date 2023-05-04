@@ -11,10 +11,14 @@ import com.laptrinhjavaweb.repository.BuildingRepository;
 import com.laptrinhjavaweb.utils.ObjectUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class BuildingConverter {
@@ -28,6 +32,14 @@ public class BuildingConverter {
         BuildingSearchBuilder builder = modelMapper.map(dto, BuildingSearchBuilder.class);
         builder.setType(String.join(",", dto.getBuildingTypes()));
         return builder;
+    }
+
+    public Page<BuildingDTO> convertToPageDTO(Page<BuildingEntity> entities) {
+
+        List<BuildingDTO> buildingDTOList = entities.getContent().stream()
+                .map(buildingEntity -> modelMapper.map(buildingEntity, BuildingDTO.class))
+                .collect(Collectors.toList());
+        return new PageImpl<>(buildingDTOList, entities.getPageable(), entities.getTotalElements());
     }
 
     public BuildingDTO convertToDto(BuildingEntity entity) {
