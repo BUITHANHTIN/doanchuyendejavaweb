@@ -23,7 +23,7 @@
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                         <span class="price">$${item.rentPrice}</span>
-                        <a href="#" class="btn-custom p-3 px-4 bg-primary">View Details <span
+                        <a href="<c:url value="/property-single?id=${item.id}" />" class="btn-custom p-3 px-4 bg-primary">View Details <span
                                 class="icon-plus ml-1"></span></a>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                                     <span class="status sale">Sale</span>
                                     <div class="d-flex">
                                         <div class="one">
-                                            <h3><a href="#">${item.address}</a></h3>
+                                            <h3><a href="<c:url value="/property-single?id=${item.id}"/>">${item.address}</a></h3>
                                             <p>${item.type}</p>
                                         </div>
                                         <div class="two">
@@ -144,7 +144,7 @@
             <c:forEach var="item" items="${mostRecommendedBuilding}">
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="properties">
-                    <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                    <a href="<c:url value="/property-single?id=${item.id}" />" class="img img-2 d-flex justify-content-center align-items-center"
                        style="background-image: url(${item.avatar});">
                         <div class="icon d-flex justify-content-center align-items-center">
                             <span class="icon-search2"></span>
@@ -154,7 +154,7 @@
                         <span class="status sale">Sale</span>
                         <div class="d-flex">
                             <div class="one">
-                                <h3><a href="#">${item.address}</a></h3>
+                                <h3><a href="<c:url value="/property-single?id=${item.id}"/>">${item.address}</a></h3>
                                 <p>${item.type}</p>
                             </div>
                             <div class="two">
@@ -177,7 +177,7 @@
     </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(img/images/bg_1.jpg);">
     <div class="container" >
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
@@ -190,7 +190,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="9000">0</strong>
+                                <strong class="number" data-number="${countCustomer}">0</strong>
                                 <span>Happy Customers</span>
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="10000">0</strong>
+                                <strong class="number" data-number="${countBuilding}">0</strong>
                                 <span>Properties</span>
                             </div>
                         </div>
@@ -251,7 +251,7 @@
                             </div>
                             <div class="item">
                                 <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+                                    <div class="user-img mb-4" style="background-image: url(img/images/person_2.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -267,7 +267,7 @@
                             </div>
                             <div class="item">
                                 <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                                    <div class="user-img mb-4" style="background-image: url(img/images/person_3.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -283,7 +283,7 @@
                             </div>
                             <div class="item">
                                 <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                    <div class="user-img mb-4" style="background-image: url(img/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -299,7 +299,7 @@
                             </div>
                             <div class="item">
                                 <div class="testimony-wrap py-4 pb-5">
-                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                    <div class="user-img mb-4" style="background-image: url(img/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -333,7 +333,7 @@
         <div class="row d-flex">
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('img/images/image_1.jpg');">
                     </a>
                     <div class="text mt-3 d-block">
                         <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
@@ -348,7 +348,7 @@
             </div>
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('img/images/image_2.jpg');">
                     </a>
                     <div class="text mt-3">
                         <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
@@ -363,7 +363,7 @@
             </div>
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('img/images/image_3.jpg');">
                     </a>
                     <div class="text mt-3">
                         <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the

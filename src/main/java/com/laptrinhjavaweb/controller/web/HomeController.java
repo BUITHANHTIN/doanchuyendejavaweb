@@ -43,42 +43,15 @@ public class HomeController {
         mav.addObject("recentsBuilding", buildingService.recentsBuilding());
         mav.addObject("list3Building", buildingService.findByTop3Building());
         mav.addObject("mostRecommendedBuilding", buildingService.mostRecommendedBuilding());
-        return mav;
-    }
-
-    @RequestMapping(value = "/property", method = RequestMethod.GET)
-    public ModelAndView propertyPage(@RequestParam(defaultValue = "0") int page,
-                                     @RequestParam(defaultValue = "10") int size,
-                                     @RequestParam(defaultValue = "id") String sortBy) {
-        ModelAndView mav = new ModelAndView("web/property");
-        Map<String, String> districtTypes = districtBuildingService.getDistrictMap();
-        //phan trang
-
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
-        Page<BuildingDTO> buildingDTO = buildingService.findAllPage(pageable);
-        int totalPages = buildingDTO.getTotalPages();
-        int currentPage = buildingDTO.getNumber();
-
-        int startItem = currentPage * size;
-        int endItem = (int) Math.min(startItem + size, buildingDTO.getTotalElements());
-        mav.addObject("totalPages", totalPages);
-        mav.addObject("currentPage", currentPage);
-        mav.addObject("startItem", startItem);
-        mav.addObject("endItem", endItem);
-        mav.addObject("totalItems", buildingDTO.getTotalElements());
-        mav.addObject("model",  buildingDTO.getContent());
-
-        mav.addObject("showAllBuilding", buildingService.showAllBuilding());
-        mav.addObject("districtList", districtTypes);
-        /*mav.addObject("modelSearch", buildingDTO);*/
 
         return mav;
     }
+
+
 
     @RequestMapping(value = "/agents", method = RequestMethod.GET)
     public ModelAndView agentsPage() {
         ModelAndView mav = new ModelAndView("web/agents");
-        mav.addObject("showAllCustommer", customerService.showAllCustommer());
         return mav;
     }
 

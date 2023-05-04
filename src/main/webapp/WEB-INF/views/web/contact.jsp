@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Phone:</span> <a href="tel://1234567920">+84 035 6056 080</a></p>
+                    <p><span>Phone:</span> <a href="tel://0356056080">+84 035 6056 080</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Website</span> <a href="<c:url value='/trang-chu'/>">website.com</a></p>
+                    <p><span>Website</span> <a href="<c:url value='/trang-chu'/>">doanchuyendeweb</a></p>
                 </div>
             </div>
         </div>

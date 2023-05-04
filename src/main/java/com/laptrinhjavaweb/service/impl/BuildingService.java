@@ -4,7 +4,6 @@ import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
-import com.laptrinhjavaweb.dto.CustomerDTO;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.entity.*;
 import com.laptrinhjavaweb.repository.*;
@@ -112,6 +111,7 @@ public class BuildingService implements IBuildingService {
     }
 
 
+
     @Override
     public int countTotalItemFindConditionBuilding(BuildingSearchRequestDTO buildingDTO) {
         BuildingSearchBuilder searchBuilder = buildingConverter.convertToBuilder(buildingDTO);
@@ -152,6 +152,8 @@ public class BuildingService implements IBuildingService {
 
         return buildingConverter.convertToDto(buildingEntity);
     }
+
+
 
     @Override
     public Page<BuildingDTO> findAllPage(Pageable pageable) {
