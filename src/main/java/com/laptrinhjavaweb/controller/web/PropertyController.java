@@ -41,7 +41,7 @@ public class PropertyController {
 
     @RequestMapping(value = "/property", method = RequestMethod.GET)
     public ModelAndView propertyPage(@RequestParam(defaultValue = "0") int page,
-                                     @RequestParam(defaultValue = "10") int size,
+                                     @RequestParam(defaultValue = "9") int size,
                                      @RequestParam(defaultValue = "id") String sortBy) {
         ModelAndView mav = new ModelAndView("web/property");
         Map<String, String> districtTypes = districtBuildingService.getDistrictMap();
