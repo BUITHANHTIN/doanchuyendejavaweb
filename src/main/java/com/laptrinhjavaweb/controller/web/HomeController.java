@@ -94,11 +94,7 @@ public class HomeController {
         return mav;
     }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
-    public ModelAndView contactPage() {
-        ModelAndView mav = new ModelAndView("web/contact");
-        return mav;
-    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
