@@ -228,7 +228,7 @@
             <c:forEach var="item" items="${model}">
                 <div class="col-md-4 ftco-animate">
                     <div class="properties">
-                        <a href="<c:url value="/property-single?id=${item.id}">"
+                        <a href="<c:url value="/property-single?id=${item.id}"/>"
                            class="img img-2 d-flex justify-content-center align-items-center"
                            style="background-image: url(${item.avatar});">
                             <div class="icon d-flex justify-content-center align-items-center">
@@ -239,7 +239,7 @@
                             <span class="status sale">Sale</span>
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="<c:url value="/property-single?id=${item.id}">">${item.name}</a></h3>
+                                    <h3><a href="<c:url value="/property-single?id=${item.id}"/>">${item.name}</a></h3>
                                     <p>${item.street}</p>
                                 </div>
                                 <div class="two">
