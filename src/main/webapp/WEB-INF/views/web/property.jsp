@@ -265,7 +265,7 @@
                 <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
                     <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
                         <a class="page-link" href="?page=${loop.index}">
-                                ${loop.index+1}
+                                ${loop.index}
                         </a>
                     </li>
                 </c:forEach>

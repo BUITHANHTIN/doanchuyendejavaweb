@@ -43,7 +43,7 @@ public class CustomerEntity extends BaseEntity {
     private List<UserEntity> users = new ArrayList<>();
 
     public String getDemand() {
-        return demand;
+        return demand ;
     }
 
     public void setDemand(String demand) {
