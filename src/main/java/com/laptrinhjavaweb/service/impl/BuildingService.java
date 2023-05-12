@@ -65,7 +65,7 @@ public class BuildingService implements IBuildingService {
 
     public boolean isManager(List<RoleEntity> list) {
         for (RoleEntity entity : list) {
-            if (entity.getCode().equals(SystemConstant.MANAGER_ROLE)) {
+            if (entity.getCode().equals(SystemConstant.MANAGER)) {
                 return true;
             }
         }

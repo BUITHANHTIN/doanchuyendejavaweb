@@ -37,13 +37,19 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         } else if (isAdmin(roles)) {
             url = SystemConstant.ADMIN_HOME;
         }*/
-        if (isUser(roles)) {
+       /* if (isUser(roles)) {
+            url = SystemConstant.HOME;
+        } else if (isAdmin(roles)) {
             url = SystemConstant.ADMIN_HOME;
+        }
+        return url;*/
+        if (isUser(roles)) {
+            url = SystemConstant.HOME;
         } else if (isAdmin(roles)) {
             url = SystemConstant.ADMIN_HOME;
         }
         return url;
-    }   
+    }
 
     public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
         this.redirectStrategy = redirectStrategy;
@@ -54,7 +60,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
 
     private boolean isAdmin(List<String> roles) {
-        if (roles.contains(SystemConstant.ADMIN_ROLE)) {
+        if (roles.contains(SystemConstant.MANAGE_ROLE) && roles.contains(SystemConstant.STAFF_ROLE)) {
             return true;
         }
         return false;

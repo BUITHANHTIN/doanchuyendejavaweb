@@ -23,4 +23,5 @@ public interface IUserService {
     void delete(long[] ids);
     Map<Long,String> getStaffMap();
     List<StaffResponseDTO> listStaff(Long id,String mission);
+    void save(UserDTO userDTO);
 }

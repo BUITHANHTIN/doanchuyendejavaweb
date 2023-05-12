@@ -16,6 +16,8 @@ public class CustomerEntity extends BaseEntity {
 
     @Column(name = "email", unique = true)
     private String email;
+    @Column(name = "passwork", nullable = false)
+    private String passwork;
     @Column(name = "demand")
     private String demand;// nhu cầu
     @Column(name = "company")
@@ -94,5 +96,13 @@ public class CustomerEntity extends BaseEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPasswork() {
+        return passwork;
+    }
+
+    public void setPasswork(String passwork) {
+        this.passwork = passwork;
     }
 }
