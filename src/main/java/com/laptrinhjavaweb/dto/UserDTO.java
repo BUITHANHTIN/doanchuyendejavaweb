@@ -79,4 +79,18 @@ public class UserDTO extends AbstractDTO {
     public void setRoleDTOs(Map<String, String> roleDTOs) {
         this.roleDTOs = roleDTOs;
     }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "userName='" + userName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", roles=" + roles +
+                ", roleName='" + roleName + '\'' +
+                ", roleCode='" + roleCode + '\'' +
+                ", roleDTOs=" + roleDTOs +
+                '}';
+    }
 }

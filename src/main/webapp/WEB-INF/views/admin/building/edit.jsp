@@ -132,6 +132,36 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="rentArea">Bedroom
+                                    </label>
+
+                                    <div class="col-sm-9">
+                                        <input name="bedroom" value="${building.bedroom}" type="number"
+                                               id="bedroom"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="rentArea">Bathroom
+                                    </label>
+
+                                    <div class="col-sm-9">
+                                        <input name="bathroom" value="${building.bathroom}" type="number"
+                                               id="bathroom"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="rentArea">Description
+                                    </label>
+
+                                    <div class="col-sm-9">
+                                        <input name="description" value="${building.description}" type="text"
+                                               id="description"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="rentPrice">
                                         Rent Price</label>
 

@@ -19,7 +19,7 @@
 
 				<security:authorize access = "isAnonymous()">
 					<li class="nav-item cta"><a href="<c:url value='/login'/>" class="nav-link ml-lg-2"><span class="icon-user"></span> Sign-In</a></li>
-					<li class="nav-item cta cta-colored"><a href="<c:url value='/login'/>" class="nav-link"><span class="icon-pencil"></span> Sign-Up</a></li>
+					<li class="nav-item cta cta-colored"><a href="<c:url value='/register'/>" class="nav-link"><span class="icon-pencil"></span> Sign-Up</a></li>
 				</security:authorize>
 				<security:authorize access = "isAuthenticated()">
 					<li class="nav-item cta"><a class="nav-link" href="#">Wellcome <%=SecurityUtils.getPrincipal().getFullName()%></a></li>

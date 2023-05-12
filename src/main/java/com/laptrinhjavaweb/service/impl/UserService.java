@@ -88,6 +88,9 @@ public class UserService implements IUserService {
     @Override
     public UserDTO findOneByUserName(String userName) {
         UserEntity userEntity = userRepository.findOneByUserName(userName);
+        if(userEntity==null){
+            return null;
+        }
         UserDTO userDTO = userConverter.convertToDto(userEntity);
         return userDTO;
     }
@@ -200,10 +203,22 @@ public class UserService implements IUserService {
         return staffResponseList;
     }
 
+    @Override
+    public void save(UserDTO userDTO) {
+        UserEntity entity = new UserEntity();
+        entity.setUserName(userDTO.getUserName());
+        entity.setFullName(userDTO.getFullName());
+        entity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        entity.setStatus(1);
+        RoleEntity role = roleRepository.findOneByCode(userDTO.getRoleCode());
+        entity.setRoles(Stream.of(role).collect(Collectors.toList()));
+        userRepository.save(entity);
+    }
+
     public List<UserDTO> listUserDto() {
         List<UserDTO> dtoList = new ArrayList<>();
 
-        List<UserEntity> entityList = roleRepository.findOneByCode(SystemConstant.STAFF_ROLE).getUsers();
+        List<UserEntity> entityList = roleRepository.findOneByCode(SystemConstant.STAFF).getUsers();
 
         for (UserEntity entity : entityList) {
             UserDTO dto = userConverter.convertToDto(entity);
