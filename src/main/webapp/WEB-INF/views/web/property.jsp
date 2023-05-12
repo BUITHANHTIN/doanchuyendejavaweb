@@ -228,7 +228,7 @@
             <c:forEach var="item" items="${model}">
                 <div class="col-md-4 ftco-animate">
                     <div class="properties">
-                        <a href="/property-single?id=${item.id}"
+                        <a href="<c:url value="/property-single?id=${item.id}">"
                            class="img img-2 d-flex justify-content-center align-items-center"
                            style="background-image: url(${item.avatar});">
                             <div class="icon d-flex justify-content-center align-items-center">
@@ -239,19 +239,19 @@
                             <span class="status sale">Sale</span>
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="/property-single?id=${item.id}">${item.name}</a></h3>
+                                    <h3><a href="<c:url value="/property-single?id=${item.id}">">${item.name}</a></h3>
                                     <p>${item.street}</p>
                                 </div>
                                 <div class="two">
-                                    <span class="price">$200</span>
+                                    <span class="price">${item.rentPriceDescription}</span>
                                 </div>
                             </div>
                             <p>Far far away, behind the word mountains, far from the countries</p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="flaticon-selection"></i>200m²</span>
-                                <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-                                <span><i class="flaticon-bed"></i> 4</span>
+                                <span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathroom}</span>
+                                <span><i class="flaticon-bed"></i> ${item.bedroom}</span>
                             </p>
                         </div>
                     </div>
