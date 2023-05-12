@@ -23,16 +23,6 @@ public class CustomerEntity extends BaseEntity {
     @Column(name = "note")
     private String note;
 
-    @Column(name = "avatar")
-    private String avatar;
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     List<TransactionEntity> transactions = new ArrayList<>();
@@ -43,7 +33,7 @@ public class CustomerEntity extends BaseEntity {
     private List<UserEntity> users = new ArrayList<>();
 
     public String getDemand() {
-        return demand ;
+        return demand;
     }
 
     public void setDemand(String demand) {
