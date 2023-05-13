@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 <%--
@@ -7,6 +8,10 @@
   Time: 3:08 PM
   To change this template use File | Settings | File Templates.
 --%>
+=======
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+>>>>>>> 25af93b946fd55e012c1bcf6408d4db245c2b356
 <html>
 <head>
     <title>Property-Single</title>

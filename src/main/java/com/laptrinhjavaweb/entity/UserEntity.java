@@ -27,15 +27,24 @@ public class UserEntity extends BaseEntity {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid", nullable = false), inverseJoinColumns = @JoinColumn(name = "roleid", nullable = false))
     private List<RoleEntity> roles = new ArrayList<>();
 
-//	@ManyToMany(fetch = FetchType.LAZY)
-//	@JoinTable(name = "assignmentcustomer", joinColumns = @JoinColumn(name = "staffid", nullable = false), inverseJoinColumns = @JoinColumn(name = "customerid", nullable = false))
-//	private List<CustomerEntity> customers = new ArrayList<>();
 
     @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
     private List<CustomerEntity> customers = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "card", fetch = FetchType.LAZY)
+    private List<BuildingEntity> buildingCard = new ArrayList<>();
+
+
     @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
     private List<BuildingEntity> buildings = new ArrayList<>();
+
+    public List<BuildingEntity> getBuildingCard() {
+        return buildingCard;
+    }
+
+    public void setBuildingCard(List<BuildingEntity> buildingCard) {
+        this.buildingCard = buildingCard;
+    }
 
     public List<CustomerEntity> getCustomers() {
         return customers;
