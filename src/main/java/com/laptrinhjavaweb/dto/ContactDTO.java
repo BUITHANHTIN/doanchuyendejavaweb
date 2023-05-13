@@ -38,6 +38,6 @@ public class ContactDTO {
     }
 
     public void setMessenger(String messenger) {
-        messenger = messenger;
+        this.messenger = messenger;
     }
 }

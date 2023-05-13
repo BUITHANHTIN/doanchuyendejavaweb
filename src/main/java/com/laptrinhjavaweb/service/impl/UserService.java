@@ -88,7 +88,7 @@ public class UserService implements IUserService {
     @Override
     public UserDTO findOneByUserName(String userName) {
         UserEntity userEntity = userRepository.findOneByUserName(userName);
-        if(userEntity==null){
+        if (userEntity == null) {
             return null;
         }
         UserDTO userDTO = userConverter.convertToDto(userEntity);
@@ -205,6 +205,7 @@ public class UserService implements IUserService {
 
     @Override
     public void save(UserDTO userDTO) {
+        userDTO.setRoleCode(SystemConstant.USER);
         UserEntity entity = new UserEntity();
         entity.setUserName(userDTO.getUserName());
         entity.setFullName(userDTO.getFullName());

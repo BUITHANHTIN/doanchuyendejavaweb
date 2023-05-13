@@ -37,25 +37,16 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public ModelAndView processRegistrationForm(@RequestParam("fullname") String fullname,
-                                                @RequestParam("username") String username, @RequestParam("password") String password) {
+
+    public ModelAndView processRegistrationForm(@ModelAttribute UserDTO userDTO) {
         ModelAndView mav = new ModelAndView("sign_up");
 
-        // Kiểm tra xem username đã tồn tại chưa
-        if (userService.findOneByUserName(username) != null) {
+        if (userService.findOneByUserName(userDTO.getUserName()) != null) {
             mav.setViewName("redirect:/register?error");
-
         } else {
-            UserDTO user = new UserDTO();
-            user.setFullName(fullname);
-            user.setPassword(password);
-            user.setUserName(username);
-            user.setRoleCode(SystemConstant.USER);
-            userService.save(user);
-
+            userService.save(userDTO);
             mav.setViewName("redirect:/register?success");
         }
-
         return mav;
 
     }

@@ -21,14 +21,15 @@
 <p style="color: green;">Đăng kí thành công.</p>
 <% } %>  <%-- Form đăng kí --%>
 
-<form:form  action="${signUpURL}" method="POST">
+<%--<form:form  action="${signUpURL}" method="POST">--%>
+<form method="post" action="<c:url value="/register"/>" >
     <div>
         <label>Tên đăng kí:</label>
-        <input type="text" name="fullname" required>
+        <input type="text" name="fullName" required>
     </div>
     <div>
         <label>Email:</label>
-        <input type="text" name="username" required>
+        <input type="text" name="userName" required>
     </div>
     <div>
         <label for="password">Mật khẩu:</label>
@@ -38,6 +39,6 @@
     <div>
         <input type="submit" value="Đăng kí">
     </div>
-</form:form>
+</form>
 </body>
 </html>

@@ -17,7 +17,8 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="<c:url value='/trang-chu'/>">Home</a></span> <span>Contact</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="<c:url value='/trang-chu'/>">Home</a></span> <span>Contact</span>
+                </p>
                 <h1 class="mb-3 bread">Contact Us</h1>
             </div>
         </div>
@@ -65,10 +66,11 @@
                         <input name="subject" type="text" class="form-control" placeholder="Subject">
                     </div>
                     <div class="form-group">
-                        <textarea  name="messenger" id="" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+                        <textarea  name="messenger" id="" cols="30" rows="7" class="form-control" placeholder="Message"
+                                  required></textarea>
                     </div>
                     <div class="form-group">
-<%--                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">--%>
+                        <%--                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">--%>
                         <button type="submit" class="btn btn-primary py-3 px-5">Send Message</button>
                     </div>
                 </form>

@@ -24,6 +24,14 @@ public class ContactEntity {
     private String messenger;
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -54,13 +62,5 @@ public class ContactEntity {
 
     public void setMessenger(String messenger) {
         this.messenger = messenger;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }

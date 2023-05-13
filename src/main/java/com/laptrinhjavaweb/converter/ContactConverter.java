@@ -29,9 +29,7 @@ public class ContactConverter {
 
 
     public ContactEntity convertToEntity(ContactDTO dto) {
-        ContactEntity entity = modelMapper.map(dto, ContactEntity.class);
-
-        return entity;
+        return modelMapper.map(dto, ContactEntity.class);
     }
 
 }
