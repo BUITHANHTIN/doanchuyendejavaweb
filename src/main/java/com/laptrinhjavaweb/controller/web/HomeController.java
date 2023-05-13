@@ -35,35 +35,6 @@ public class HomeController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping("/register")
-    public ModelAndView showRegistrationForm() {
-        ModelAndView mav = new ModelAndView("sign_up");
-        return mav;
-    }
-
-    @PostMapping("/register")
-    public ModelAndView processRegistrationForm(@RequestParam("fullname") String fullname,
-                                                @RequestParam("username") String username, @RequestParam("password") String password) {
-        ModelAndView mav = new ModelAndView("sign_up");
-
-        // Kiểm tra xem username đã tồn tại chưa
-        if (userService.findOneByUserName(username) != null) {
-            mav.setViewName("redirect:/register?error");
-
-        } else {
-            UserDTO user = new UserDTO();
-            user.setFullName(fullname);
-            user.setPassword(password);
-            user.setUserName(username);
-            user.setRoleCode(SystemConstant.USER);
-            userService.save(user);
-
-            mav.setViewName("redirect:/register?success");
-        }
-
-        return mav;
-
-    }
 
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
@@ -100,23 +71,5 @@ public class HomeController {
         return mav;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView mav = new ModelAndView("login");
-        return mav;
-    }
 
-    @RequestMapping(value = "/access-denied", method = RequestMethod.GET)
-    public ModelAndView accessDenied() {
-        return new ModelAndView("redirect:/login?accessDenied");
-    }
-
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
-        return new ModelAndView("redirect:/trang-chu");
-    }
 }
