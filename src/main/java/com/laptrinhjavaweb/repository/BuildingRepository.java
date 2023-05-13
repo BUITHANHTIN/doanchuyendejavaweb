@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>, BuildingRepositoryCustom {
     void deleteById(Long id);
 
@@ -17,5 +19,9 @@ public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>,
 
 
     Page<BuildingEntity> findAll(Pageable pageable);
+
+    List<BuildingEntity> countBuildingTypeNOITHAT();
+    List<BuildingEntity> countBuildingTypeTANGTRET();
+    List<BuildingEntity> countBuildingTypeNGUYENCAN();
 
 }

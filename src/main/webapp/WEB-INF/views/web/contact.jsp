@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Email:</span> <a href="doanchuyendeweb@gmail.com">doanchuyendeweb@gmail.com</a></p>
+                    <p><span>Email:</span> <a href="mailto:doanchuyendeweb@gmail.com">doanchuyendeweb@gmail.com</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">

@@ -25,4 +25,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>, UserRep
     UserEntity findOneById(Long id);
 
     List<UserEntity> findByIdIn(Long[] ids);
+
+    List<UserEntity> listAgents();
 }

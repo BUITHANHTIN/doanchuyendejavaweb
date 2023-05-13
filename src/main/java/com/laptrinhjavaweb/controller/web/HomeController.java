@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.laptrinhjavaweb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,7 +35,8 @@ public class HomeController {
 
     @Autowired
     CustomerService customerService;
-
+    @Autowired
+    UserRepository userRepository;
 
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
@@ -50,6 +52,7 @@ public class HomeController {
     @RequestMapping(value = "/agents", method = RequestMethod.GET)
     public ModelAndView agentsPage() {
         ModelAndView mav = new ModelAndView("web/agents");
+        mav.addObject("agents", userRepository.listAgents());
         return mav;
     }
 

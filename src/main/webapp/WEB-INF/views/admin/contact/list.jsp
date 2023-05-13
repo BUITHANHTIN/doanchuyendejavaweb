@@ -49,43 +49,39 @@
                 </h1>
             </div><!-- /.page-header -->
 
-            <div class="row">
-                <c:forEach var="item" items="${contacts}">
+            <c:forEach var="item" items="${contacts}">
+                <div class="row">
+                    <div class="properties">
+                        <a href="mailto:${item.email}"
+                           class="img img-2 d-flex justify-content-center align-items-center">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <p style="size: A3">Name: ${item.name}</p>
+                                    <h4><a href="mailto:${item.email}">${item.email}</a></h4>
 
-                <div class="properties">
-                    <p>Name: ${item.name}</p>
-                    <p>${item.messenger}</p>
-                    <br>
+                                </div>
+                                <div class="two">
+                                    <span class="price"></span>
+                                </div>
+                            </div>
+                            <p>Messenger: ${item.messenger}</p>
+                            <hr>
 
-                </div>
-
-            </div>
-            </c:forEach>
-        </div><!-- /.row -->
-
-        <div class="widget-main">
-            <p style="float: right;">
-                <button id="btnAddBuilding" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
-                        title="Them toa nha"><i
-                        class="fa fa-plus-square" aria-hidden="true"></i></button>
-                <button id="btnDeleteBuilding" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
-                        title="Xoa toa nha"><i
-                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="table-responsive">
-
+                        </div>
                     </div>
                 </div>
-            </div>
-            <input type="hidden" id="buildingId" value="">
+                <!-- /.row -->
+            </c:forEach>
+
 
         </div><!-- /.page-content -->
 
-    </div><!-- /.page-content -->
-
-</div>
+    </div>
 </div>
 </div><!-- /.main-content -->
 <div class="modal" id="assingmentBuildingModal" tabindex="-1" role="dialog">

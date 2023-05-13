@@ -29,5 +29,9 @@ public interface BuildingRepositoryCustom {
 
     List<BuildingEntity> showAllBuilding();
 
+    List<BuildingEntity> countBuildingTypeNOITHAT();
+    List<BuildingEntity> countBuildingTypeTANGTRET();
+    List<BuildingEntity> countBuildingTypeNGUYENCAN();
+
 
 }

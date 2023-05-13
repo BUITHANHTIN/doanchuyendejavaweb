@@ -76,7 +76,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     }
 
     @Override
-    public List<BuildingEntity> recentsBuilding(){
+    public List<BuildingEntity> recentsBuilding() {
         String finalSql = "select * from estateadvance.building limit 6";
         Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
         return query.getResultList();
@@ -90,8 +90,29 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     }
 
     @Override
-    public List<BuildingEntity> showAllBuilding(){
+    public List<BuildingEntity> showAllBuilding() {
         String finalSql = "select * from estateadvance.building";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<BuildingEntity> countBuildingTypeNOITHAT() {
+        String finalSql = "select * from estateadvance.building where building.type LIKE '%NOI_THAT%'";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<BuildingEntity> countBuildingTypeTANGTRET() {
+        String finalSql = "select * from estateadvance.building where building.type LIKE '%TANG_TRET%'";
+        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<BuildingEntity> countBuildingTypeNGUYENCAN() {
+        String finalSql = "select * from estateadvance.building where building.type LIKE '%NGUYEN_CAN%'";
         Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
         return query.getResultList();
     }

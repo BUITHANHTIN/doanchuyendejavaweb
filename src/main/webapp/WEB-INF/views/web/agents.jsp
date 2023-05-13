@@ -28,10 +28,10 @@
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
-<%--            <c:forEach var="item" items="${showAllCustommer}">--%>
+            <c:forEach var="item" items="${agents}">
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
-                        <div class="img" style="background-image: url(${item.avatar});"></div>
+                        <div class="img" style="background-image:url('img/images/staff-1.jpg');"></div>
                         <div class="text pt-4">
                             <h3><a href="#">name</a></h3>
                             <span class="position mb-2">4 Listing</span>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-<%--            </c:forEach>--%>
+            </c:forEach>
         </div>
         <div class="row mt-5">
             <div class="col text-center">

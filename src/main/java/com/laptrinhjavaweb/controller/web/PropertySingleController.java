@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.controller.web;
 
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
+import com.laptrinhjavaweb.repository.BuildingRepository;
 import com.laptrinhjavaweb.service.impl.BuildingService;
 import com.laptrinhjavaweb.service.impl.CustomerService;
 import com.laptrinhjavaweb.service.impl.DistrictBuildingService;
@@ -29,11 +30,18 @@ public class PropertySingleController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    BuildingRepository buildingRepository;
 
     @RequestMapping(value = "/property-single", method = RequestMethod.GET)
-    public ModelAndView propertySingle(@RequestParam ("id") Long id ) {
+    public ModelAndView propertySingle(@RequestParam("id") Long id) {
         ModelAndView mav = new ModelAndView("web/property-single");
-        mav.addObject("model",buildingService.findById(id));
+        mav.addObject("mostRecommendedBuilding", buildingService.mostRecommendedBuilding());
+        mav.addObject("property", buildingService.showAllBuilding());
+        mav.addObject("model", buildingService.findById(id));
+        mav.addObject("typeNOITHAT", buildingRepository.countBuildingTypeNOITHAT());
+        mav.addObject("typeTANGTRET", buildingRepository.countBuildingTypeTANGTRET());
+        mav.addObject("typeNGUYENCAN", buildingRepository.countBuildingTypeNGUYENCAN());
         return mav;
     }
 
