@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ICardService {
 
-    void save(Long customer,Long buildings);
+    void save(Long buildings);
 
 
 

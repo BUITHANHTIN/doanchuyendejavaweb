@@ -1,7 +1,8 @@
-package com.laptrinhjavaweb.api.admin;
+package com.laptrinhjavaweb.api.web;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.dto.BuildingDTO;
+import com.laptrinhjavaweb.dto.MyUserDetail;
 import com.laptrinhjavaweb.dto.PasswordDTO;
 import com.laptrinhjavaweb.dto.Response.StaffResponseDTO;
 import com.laptrinhjavaweb.dto.UserDTO;
@@ -29,9 +30,9 @@ public class CardAPI {
     CardService cardService;
 
     @PostMapping
-    public ResponseEntity<String> createCard(
-            @RequestParam("idb") Long buildingId) {
-        cardService.save(SecurityUtils.getPrincipal().getId(), buildingId);
+    public ResponseEntity<String> createCard(@RequestParam("buildingId") Long buildingId) {
+
+        cardService.save(buildingId);
         return ResponseEntity.status(200).body("Luu thanh cong");
     }
 

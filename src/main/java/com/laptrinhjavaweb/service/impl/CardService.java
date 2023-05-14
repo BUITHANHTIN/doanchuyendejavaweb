@@ -4,6 +4,7 @@ import com.laptrinhjavaweb.builder.BuildingSearchBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BuildingConverter;
 import com.laptrinhjavaweb.dto.BuildingDTO;
+import com.laptrinhjavaweb.dto.MyUserDetail;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.entity.RoleEntity;
@@ -20,6 +21,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,9 +43,11 @@ public class CardService implements ICardService {
 
     @Override
     @Transactional
-    public void save(Long customer, Long building) {
+    public void save(Long building) {
         BuildingEntity buildingEntity = buildingRepository.findOneById(building);
-        UserEntity userEntity = userRepository.findOneById(customer);
+        MyUserDetail myUserDetail=(MyUserDetail)SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        UserEntity userEntity = userRepository.findOneById(myUserDetail.getId());
         if (buildingEntity == null && userEntity == null) {
             try {
                 throw new NotFoundException(SystemConstant.BUILDING_NOT_FOUND + " and " + SystemConstant.CUSTOMER_NOT_FOUND);
