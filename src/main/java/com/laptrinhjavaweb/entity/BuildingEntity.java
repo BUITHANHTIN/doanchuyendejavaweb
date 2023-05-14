@@ -81,6 +81,18 @@ public class BuildingEntity extends BaseEntity {
     @JoinTable(name = "assignmentbuilding", joinColumns = @JoinColumn(name = "buildingid", nullable = false), inverseJoinColumns = @JoinColumn(name = "staffid", nullable = false))
     private List<UserEntity> users = new ArrayList<>();
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "assignmentcard", joinColumns = @JoinColumn(name = "buildingid", nullable = false), inverseJoinColumns = @JoinColumn(name = "customerid", nullable = false))
+    private List<UserEntity> card = new ArrayList<>();
+
+    public List<UserEntity> getCard() {
+        return card;
+    }
+
+    public void setCard(List<UserEntity> card) {
+        this.card = card;
+    }
+
     public List<UserEntity> getUsers() {
         return users;
     }
