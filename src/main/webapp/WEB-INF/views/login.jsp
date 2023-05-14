@@ -1,44 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp"%>	
+         pageEncoding="UTF-8" %>
+<%@include file="/common/taglib.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Đăng nhập</title>
-</head>
-<body>
-	<div class="container">
-		<!-- <h1 class="form-heading">login Form</h1> -->
-		<div class="login-form">
-			<div class="main-div">
-				<c:if test="${param.incorrectAccount != null}">
-					<div class="alert alert-danger">	
-							Username or password incorrect
-					</div>
-				</c:if>
-				<c:if test="${param.accessDenied != null}">
-					<div class="alert alert-danger">	
-							you Not authorize
-					</div>
-				</c:if>
-				<c:if test="${param.sessionTimeout != null}">
-					<div class="alert alert-danger">
-							session timeout
-					</div>
-				</c:if>
-				<form action="j_spring_security_check" id="formLogin" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập">
-					</div>
+    <style>
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
 
-					<div class="form-group">
-						<input type="password" class="form-control" id="password" name="j_password" placeholder="Mật khẩu">
-					</div>
-					<button type="submit" class="btn btn-primary" >Đăng nhập</button>
-				</form>
-			</div>
-		</div>
-	</div>
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <c:if test="${param.incorrectAccount != null}">
+                    <div class="alert alert-danger">
+                        Username or password incorrect
+                    </div>
+                </c:if>
+                <c:if test="${param.accessDenied != null}">
+                    <div class="alert alert-danger">
+                        you Not authorize
+                    </div>
+                </c:if>
+                <c:if test="${param.sessionTimeout != null}">
+                    <div class="alert alert-danger">
+                        session timeout
+                    </div>
+                </c:if>
+                <form action="j_spring_security_check" id="formLogin" method="post">
+
+                    <!-- Email input -->
+
+                    <div class="form-outline mb-4" style="margin-top: 100px">
+                        <label class="form-label" for="form3Example3">Username</label>
+                        <input type="text" id="form3Example3" class="form-control form-control-lg"
+                               id="userName" name="j_username"
+                               placeholder="Tên đăng nhập"/>
+
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="form3Example4">Password</label>
+                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                               id="password" name="j_password"
+                               placeholder="Mật khẩu"/>
+
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Checkbox -->
+                        <a href="#!" class="text-body">Forgot password?</a>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập
+                        </button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="<c:url value='/register'/>"
+                                                                                          class="link-danger">Đăng
+                            Ký</a></p>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
