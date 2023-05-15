@@ -51,27 +51,28 @@
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form method="post" action="<c:url value="/register"/>">
 
-
                     <!-- Username input -->
-                    <div class="form-outline mb-4" style="margin-top: 100px">
-                        <label class="form-label" for="form3Example3">Tên đăng nhập</label>
+                    <div class="form-floating mb-2" style="margin-top: 100px">
+
                         <input type="text" id="form3Example3" class="form-control form-control-lg"
-                                name="j_username" required>
+                                name="j_username" placeholder="Username" required >
+                        <label class="form-label" for="form3Example3">Tên đăng nhập</label>
                     </div>
 
                     <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="username">Email</label>
+                    <div class="form-floating mb-2">
+
                         <input type="email" id="username" class="form-control form-control-lg"
-                               name="username" required>
+                               name="username" placeholder="Username" required>
+                        <label class="form-label" for="username">Email</label>
                     </div>
 
 
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="password">Mật khẩu</label>
-                        <input type="password" id="password" class="form-control form-control-lg"
-                               name="j_password" required>
+                    <div class="form-floating mb-2 ">
 
+                        <input type="password" id="password" class="form-control form-control-lg"
+                               name="j_password" placeholder="Password" required>
+                        <label class="form-label" for="password">Mật khẩu</label>
                     </div>
 
 

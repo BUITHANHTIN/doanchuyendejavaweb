@@ -141,6 +141,7 @@
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
 
+
                 <input id="buildingId" type="hidden" value="${model.id}">
                 <button id="addCard" class="btn btn-primary"> THEM VAO GIO HANG</button>
 
@@ -161,6 +162,90 @@
                         <li><a href="#">Tầng Trệt <span>(${typeTANGTRET.size()})</span></a></li>
 
                     </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Recent Blog</h3>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(img/images/image_1.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+                                blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+                                blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+                                blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <li><a href="#">Properties <span>(${property.size()})</span></a></li>
+                        <li><a href="#">Nội Thất <span>(${typeNOITHAT.size()})</span></a></li>
+                        <li><a href="#">Nguyên Căn <span>(${typeNGUYENCAN.size()})</span></a></li>
+                        <li><a href="#">Tầng Trệt <span>(${typeTANGTRET.size()})</span></a></li>
+                    </div>
+
+                    <form style="margin-top: 50px">
+                        <h2 style="background-color: #23ad42; text-align: center">TƯ VẤN</h2>
+
+                        <div class="form-floating mb-2">
+                            <input type="text" id="form3Example3" class="form-control form-control-lg"
+                                   id="hovaten" name="hovaten"
+                                   placeholder="Họ và tên"/>
+                            <label for="form3Example3">Họ và tên</label>
+                        </div>
+
+                        <div class="form-floating mb-2">
+
+                            <input type="text" id="form3Example4" class="form-control form-control-lg"
+                                   id="email" name="email"
+                                   placeholder="Email"/>
+                            <label class="form-label" for="form3Example4">Email</label>
+                        </div>
+                        <div class="form-floating">
+
+                            <input type="text" id="form3Example5" class="form-control form-control-lg"
+                                   id="sodienthoai" name="sodienthoai"
+                                   placeholder="Số điện thoại"/>
+                            <label class="form-label" for="form3Example5">Số điện thoại</label>
+                        </div>
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;">NHẬN TƯ VẤN
+                            </button>
+                        </div>
+
+                    </form>
+
                 </div>
 
                 <div class="sidebar-box ftco-animate">

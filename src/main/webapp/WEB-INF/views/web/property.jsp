@@ -204,15 +204,13 @@
             </c:forEach>
 
         </div>
+
         <c:if test="${totalPages!=0}">
             <div class="row mt-5">
                 <ul class="pagination">
                     <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
                         <a class="page-link" href="/other-page?page=${currentPage - 1}">
                             Previous
-                        </a>
-                    </li>
-
 
                     <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
                         <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
