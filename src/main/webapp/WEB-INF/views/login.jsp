@@ -57,21 +57,17 @@
 
                     <!-- Email input -->
 
-                    <div class="form-outline mb-4" style="margin-top: 100px">
+                    <div class="form-floating mb-2" style="margin-top: 100px">
+                        <input type="text" id="form3Example3" class="form-control form-control-lg" name="j_username"
+                               placeholder="Username"/>
                         <label class="form-label" for="form3Example3">Username</label>
-                        <input type="text" id="form3Example3" class="form-control form-control-lg"
-                               id="userName" name="j_username"
-                               placeholder="Tên đăng nhập"/>
-
                     </div>
 
                     <!-- Password input -->
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="form3Example4">Password</label>
-                        <input type="password" id="form3Example4" class="form-control form-control-lg"
-                               id="password" name="j_password"
+                    <div class="form-floating mb-2">
+                        <input type="password" id="form3Example4" class="form-control form-control-lg" name="j_password"
                                placeholder="Mật khẩu"/>
-
+                        <label class="form-label" for="form3Example4">Password</label>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center">
@@ -81,7 +77,7 @@
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập
+                                style="padding-left: 2.5rem; padding-right: 2.5rem; margin: auto">Đăng nhập
                         </button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="<c:url value='/register'/>"
                                                                                           class="link-danger">Đăng

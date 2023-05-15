@@ -199,8 +199,8 @@
             </c:forEach>
 
         </div>
-        <div class="row mt-5">
-            <ul class="pagination">
+        <div class="row " >
+            <ul class="pagination justify-content-center">
                 <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
                     <a class="page-link" href="?page=${currentPage - 1}">
                         Previous
