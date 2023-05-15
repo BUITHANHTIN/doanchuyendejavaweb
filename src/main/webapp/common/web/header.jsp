@@ -40,9 +40,9 @@
                 <li class="nav-item"><a href="<c:url value='/blog'/>" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="<c:url value='/contact'/>" class="nav-link">Contact</a></li>
 
-                <li id="cart" class="nav-item"><a href="<c:url value='/card'/>" class="nav-link">Card</a></li>
 
-                <div id="countCart" class="topright"><b> 3 </b></div>
+
+
 
                 <security:authorize access="isAnonymous()">
                     <li class="nav-item cta"><a href="<c:url value='/login'/>" class="nav-link ml-lg-2"><span

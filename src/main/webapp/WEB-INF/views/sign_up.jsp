@@ -55,7 +55,7 @@
                     <div class="form-floating mb-2" style="margin-top: 100px">
 
                         <input type="text" id="form3Example3" class="form-control form-control-lg"
-                                name="j_username" placeholder="Username" required >
+                                name="fullName" placeholder="Username" required >
                         <label class="form-label" for="form3Example3">Tên đăng nhập</label>
                     </div>
 
@@ -63,7 +63,7 @@
                     <div class="form-floating mb-2">
 
                         <input type="email" id="username" class="form-control form-control-lg"
-                               name="username" placeholder="Username" required>
+                               name="userName" placeholder="Username" required>
                         <label class="form-label" for="username">Email</label>
                     </div>
 
@@ -71,7 +71,7 @@
                     <div class="form-floating mb-2 ">
 
                         <input type="password" id="password" class="form-control form-control-lg"
-                               name="j_password" placeholder="Password" required>
+                               name="password" placeholder="Password" required>
                         <label class="form-label" for="password">Mật khẩu</label>
                     </div>
 

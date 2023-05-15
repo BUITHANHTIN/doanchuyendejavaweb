@@ -143,66 +143,6 @@
 
 
                 <input id="buildingId" type="hidden" value="${model.id}">
-                <button id="addCard" class="btn btn-primary"> THEM VAO GIO HANG</button>
-
-                <div class="sidebar-box">
-                    <form action="#" class="search-form">
-                        <div class="form-group">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                        </div>
-                    </form>
-                </div>
-                <div class="sidebar-box ftco-animate">
-                    <div class="categories">
-                        <h3>Categories</h3>
-                        <li><a href="#">Properties <span>(${property.size()})</span></a></li>
-                        <li><a href="#">Nội Thất <span>(${typeNOITHAT.size()})</span></a></li>
-                        <li><a href="#">Nguyên Căn <span>(${typeNGUYENCAN.size()})</span></a></li>
-                        <li><a href="#">Tầng Trệt <span>(${typeTANGTRET.size()})</span></a></li>
-
-                    </div>
-                </div>
-
-                <div class="sidebar-box ftco-animate">
-                    <h3>Recent Blog</h3>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(img/images/image_1.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="sidebar-box ftco-animate">
