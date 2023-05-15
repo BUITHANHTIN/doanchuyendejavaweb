@@ -15,7 +15,7 @@ public interface BuildingRepositoryCustom {
 
     List<BuildingEntity> findByCondition(BuildingSearchBuilder building, Pageable pageable);
 
-
+    List<BuildingEntity> findByConditionOfProperty(BuildingSearchBuilder building);
     int countTotalItemFindAllBuilding();
 
     int countTotalItemFindConditionBuilding(BuildingSearchBuilder buildingDTO);

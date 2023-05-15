@@ -39,6 +39,7 @@ public interface IBuildingService {
 
     Page<BuildingDTO> findAllPage(Pageable pageable);
 
+    Page<BuildingDTO> findBuildingConditionOfProperty(BuildingSearchRequestDTO buildingDTO, Pageable pageable);
 
 
 }

@@ -30,8 +30,22 @@ public class BuildingConverter {
 
     public BuildingSearchBuilder convertToBuilder(BuildingSearchRequestDTO dto) {
         BuildingSearchBuilder builder = modelMapper.map(dto, BuildingSearchBuilder.class);
-        builder.setType(String.join(",", dto.getBuildingTypes()));
+        if (dto.getBuildingTypes() != null) {
+            builder.setType(String.join(",", dto.getBuildingTypes()));
+        }
+
         return builder;
+    }
+
+    public Page<BuildingDTO> convertToPageDtoOfProperty(List<BuildingEntity> buildingDTO, Pageable pageable) {
+
+        int start = pageable.getPageNumber() * pageable.getPageSize();
+        int end = Math.min((start + pageable.getPageSize()), buildingDTO.size());
+
+        List<BuildingDTO> buildingDTOList = buildingDTO.stream()
+                .map(buildingEntity -> modelMapper.map(buildingEntity, BuildingDTO.class))
+                .collect(Collectors.toList()).subList(start,end);
+        return new PageImpl<>(buildingDTOList, pageable, buildingDTO.size());
     }
 
     public Page<BuildingDTO> convertToPageDTO(Page<BuildingEntity> entities) {

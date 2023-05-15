@@ -52,6 +52,13 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         return query.getResultList();
     }
 
+    @Override
+    public List<BuildingEntity> findByConditionOfProperty(BuildingSearchBuilder building) {
+        StringBuilder finalSql = buildQueryFindConditionFilter(building);
+        Query query = entityManager.createNativeQuery(finalSql.toString(), BuildingEntity.class);
+        return query.getResultList();
+    }
+
 
     @Override
     public int countTotalItemFindAllBuilding() {

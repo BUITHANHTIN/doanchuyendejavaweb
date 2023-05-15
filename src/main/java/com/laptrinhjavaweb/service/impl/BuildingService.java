@@ -115,7 +115,6 @@ public class BuildingService implements IBuildingService {
     }
 
 
-
     @Override
     public int countTotalItemFindConditionBuilding(BuildingSearchRequestDTO buildingDTO) {
         BuildingSearchBuilder searchBuilder = buildingConverter.convertToBuilder(buildingDTO);
@@ -158,10 +157,16 @@ public class BuildingService implements IBuildingService {
     }
 
 
-
     @Override
     public Page<BuildingDTO> findAllPage(Pageable pageable) {
         return buildingConverter.convertToPageDTO(buildingRepository.findAll(pageable));
+    }
+
+    @Override
+    public Page<BuildingDTO> findBuildingConditionOfProperty(BuildingSearchRequestDTO buildingDTO, Pageable pageable) {
+        BuildingSearchBuilder searchBuilder = buildingConverter.convertToBuilder(buildingDTO);
+        List<BuildingEntity> buildingEntityList = buildingRepository.findByConditionOfProperty(searchBuilder);
+        return buildingConverter.convertToPageDtoOfProperty(buildingEntityList, pageable);
     }
 
 

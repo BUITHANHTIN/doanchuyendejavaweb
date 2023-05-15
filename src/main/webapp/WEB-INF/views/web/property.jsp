@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/common/taglib.jsp" %>
+<c:url var="buildingListURL" value='/property'/>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,41 +29,45 @@
     <div class="container">
         <div class="row">
             <div class="">
-                <form action="" class="search-property">
+                <form action="<c:url value="/property"/>" method="get" class="search-property">
+
+
                     <div class="row">
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Tên</label>
+                                <label
+                                >Tên </label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
-                                    <input name="name" type="text" class="form-control" placeholder="Keyword">
+                                    <input name="name" value="" type="text" class="form-control"
+                                           placeholder="Keyword">
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Vị trí</label>
+                                <label>Ten duong</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
-                                    <input name="address" type="text" class="form-control"
+                                    <input name="street" type="text" class="form-control"
                                            placeholder="City/Locality Name">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Quận</label>
+                                <label>Quận</label>
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="district" id="" class="form-control">
-                                            <option value="">Type</option>
-                                            <option value="">Commercial</option>
-                                            <option value="">- Office</option>
-                                            <option value="">Residential</option>
-                                            <option value="">Villa</option>
-                                            <option value="">Condominium</option>
-                                            <option value="">Apartment</option>
+                                        <select name="district" class="form-control">
+                                            <option value="">Chon quan</option>
+                                            <c:forEach items="${districtList}" var="item">
+                                                <option value="${item.key}">${item.value}</option>
+                                            </c:forEach>
+
+
                                         </select>
                                     </div>
                                 </div>
@@ -70,7 +75,7 @@
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Min Beds</label>
+                                <label>Min Beds</label>
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -87,11 +92,11 @@
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Min Bathrooms</label>
+                                <label>Min Bathrooms</label>
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="bathroom" id="" class="form-control">
+                                        <select name="bathroom" class="form-control">
                                             <option style="color: #0b0b0b" value="">1</option>
                                             <option style="color: #0b0b0b" value="">2</option>
                                             <option style="color: #0b0b0b" value="">3</option>
@@ -129,7 +134,7 @@
 
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Diện tích nhỏ nhất <span>(m²)</span></label>
+                                <label>Diện tích nhỏ nhất <span>(m²)</span></label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
                                     <input name="areaFrom" type="text" class="form-control" placeholder="Min Area">
@@ -138,7 +143,7 @@
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Diện tích lớn nhất <span>(m²)</span></label>
+                                <label>Diện tích lớn nhất <span>(m²)</span></label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
                                     <input name="areaTo" type="text" class="form-control" placeholder="Max Area">
@@ -199,28 +204,34 @@
             </c:forEach>
 
         </div>
-        <div class="row mt-5">
-            <ul class="pagination">
-                <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
-                    <a class="page-link" href="?page=${currentPage - 1}">
-                        Previous
-                    </a>
-                </li>
-                <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
-                    <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
-                        <a class="page-link" href="?page=${loop.index}">
-                                ${loop.index+1}
+        <c:if test="${totalPages!=0}">
+            <div class="row mt-5">
+                <ul class="pagination">
+                    <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
+                        <a class="page-link" href="/other-page?page=${currentPage - 1}">
+                            Previous
                         </a>
                     </li>
-                </c:forEach>
-                <li class="page-item ${currentPage == totalPages-1 ? 'disabled' : ''}">
-                    <a class="page-link" href="?page=${currentPage + 1}">
-                        Next
-                    </a>
-                </li>
-            </ul>
 
-        </div>
+
+                    <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
+                        <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
+                            <a class="page-link" href="/other-page?page=${loop.index}">
+                                    ${loop.index+1}
+                            </a>
+                        </li>
+                    </c:forEach>
+
+                    <li class="page-item ${currentPage == totalPages-1 ? 'disabled' : ''}">
+                        <a class="page-link" href="/other-page?page=${currentPage + 1}">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </c:if>
+        <c:if test="${totalPages==0}"> Khong tim thay san pham </c:if>
     </div>
 </section>
 

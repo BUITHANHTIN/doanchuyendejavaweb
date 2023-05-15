@@ -20,8 +20,24 @@ public class BuildingSearchBuilder extends AbstractDTO {
     private Long staffInCharge;
     private String[] buildingTypes;
     private String type;
+    private Integer bedroom;
+    private Integer bathroom;
 
+    public Integer getBedroom() {
+        return bedroom;
+    }
 
+    public void setBedroom(Integer bedroom) {
+        this.bedroom = bedroom;
+    }
+
+    public Integer getBathroom() {
+        return bathroom;
+    }
+
+    public void setBathroom(Integer bathroom) {
+        this.bathroom = bathroom;
+    }
 
     public String getType() {
         return type;
@@ -178,6 +194,19 @@ public class BuildingSearchBuilder extends AbstractDTO {
         private String staffInCharge;
         private String[] buildingTypes;
         private String type;
+        private Integer bedroom;
+        private Integer bathroom;
+
+        public BuildingBuilder setBedroom(Integer bedroom) {
+            this.bedroom = bedroom;
+            return this;
+        }
+
+        public BuildingBuilder setBathroom(Integer bathroom) {
+            this.bathroom = bathroom;
+            return this;
+        }
+
 
         public BuildingBuilder setName(String name) {
             this.name = name;

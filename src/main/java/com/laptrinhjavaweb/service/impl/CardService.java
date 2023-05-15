@@ -45,9 +45,7 @@ public class CardService implements ICardService {
     @Transactional
     public void save(Long building) {
         BuildingEntity buildingEntity = buildingRepository.findOneById(building);
-        MyUserDetail myUserDetail=(MyUserDetail)SecurityContextHolder
-                .getContext().getAuthentication().getPrincipal();
-        UserEntity userEntity = userRepository.findOneById(myUserDetail.getId());
+        UserEntity userEntity = userRepository.findOneById(SecurityUtils.getPrincipal().getId());
         if (buildingEntity == null && userEntity == null) {
             try {
                 throw new NotFoundException(SystemConstant.BUILDING_NOT_FOUND + " and " + SystemConstant.CUSTOMER_NOT_FOUND);
