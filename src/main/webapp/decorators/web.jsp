@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <%--    <title>Trang chủ</title>--%>
-
+    <title><dec:title default="Trang chủ" /></title>
     <!-- Bootstrap core CSS -->
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">

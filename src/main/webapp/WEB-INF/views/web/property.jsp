@@ -62,9 +62,9 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="district" class="form-control">
-                                            <option value="">Chon quan</option>
+                                            <option style="color: black" value="">Chọn Quận</option>
                                             <c:forEach items="${districtList}" var="item">
-                                                <option value="${item.key}">${item.value}</option>
+                                                <option style="color: black" value="${item.key}">${item.value}</option>
                                             </c:forEach>
 
 
@@ -207,11 +207,12 @@
 
         <c:if test="${totalPages!=0}">
             <div class="row mt-5">
-                <ul class="pagination">
+                <ul class="pagination justify-content-center">
                     <li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
                         <a class="page-link" href="/other-page?page=${currentPage - 1}">
                             Previous
-
+                        </a>
+                    </li>
                     <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
                         <li class="page-item ${currentPage == loop.index ? 'active' : ''}">
                             <a class="page-link" href="/other-page?page=${loop.index}">
@@ -229,7 +230,7 @@
 
             </div>
         </c:if>
-        <c:if test="${totalPages==0}"> Khong tim thay san pham </c:if>
+        <c:if test="${totalPages==0}"> Không tìm thấy sản phẩm </c:if>
     </div>
 </section>
 

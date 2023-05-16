@@ -54,9 +54,7 @@
                     </div>
                 </c:if>
                 <form action="j_spring_security_check" id="formLogin" method="post">
-
                     <!-- Email input -->
-
                     <div class="form-floating mb-2" style="margin-top: 100px">
                         <input type="text" id="form3Example3" class="form-control form-control-lg" name="j_username"
                                placeholder="Username"/>
@@ -79,8 +77,9 @@
                         <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem; margin: auto">Đăng nhập
                         </button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="<c:url value='/register'/>"
-                                                                                          class="link-danger">Đăng
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a
+                                href="<c:url value='/register'/>"
+                                class="link-danger">Đăng
                             Ký</a></p>
                     </div>
 

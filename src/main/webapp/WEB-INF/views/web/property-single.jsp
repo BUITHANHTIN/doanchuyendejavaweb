@@ -57,19 +57,7 @@
                             skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of
                             her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she
                             continued her way.</p>
-                        <div class="d-md-flex mt-5 mb-5">
-                            <ul>
-                                <li><span>Lot Area: </span> ${model.floorArea}</li>
-                                <li><span>Bed Rooms: </span> ${model.bedroom}</li>
-                                <li><span>Bath Rooms: </span> ${model.bathroom}</li>
-                            </ul>
-                            <ul class="ml-md-5">
-                                <li><span>Floor Area: </span> ${model.floorArea}</li>
-                                <li><span>Year Build:: </span> 2018</li>
-                                <li><span>Stories: </span> 1</li>
-                                <li><span>Roofing: </span> New</li>
-                            </ul>
-                        </div>
+
                         <p>When she reached the first hills of the Italic Mountains, she had a last view back on the
                             skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of
                             her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she
@@ -141,67 +129,18 @@
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
 
-
-                <input id="buildingId" type="hidden" value="${model.id}">
-                <button id="addCard" class="btn btn-primary"> THEM VAO GIO HANG</button>
-
-                <div class="sidebar-box">
-                    <form action="#" class="search-form">
-                        <div class="form-group">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                        </div>
-                    </form>
-                </div>
-                <div class="sidebar-box ftco-animate">
-                    <div class="categories">
-                        <h3>Categories</h3>
-                        <li><a href="#">Properties <span>(${property.size()})</span></a></li>
-                        <li><a href="#">Nội Thất <span>(${typeNOITHAT.size()})</span></a></li>
-                        <li><a href="#">Nguyên Căn <span>(${typeNGUYENCAN.size()})</span></a></li>
-                        <li><a href="#">Tầng Trệt <span>(${typeTANGTRET.size()})</span></a></li>
-
-                    </div>
-                </div>
-
-                <div class="sidebar-box ftco-animate">
-                    <h3>Recent Blog</h3>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(img/images/image_1.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="d-md-flex mt-5 mb-5">
+                    <ul>
+                        <li><span>Lot Area: </span> ${model.floorArea}</li>
+                        <li><span>Bed Rooms: </span> ${model.bedroom}</li>
+                        <li><span>Bath Rooms: </span> ${model.bathroom}</li>
+                    </ul>
+                    <ul class="ml-md-5">
+                        <li><span>Floor Area: </span> ${model.floorArea}</li>
+                        <li><span>Rent Price: </span>${model.rentPrice}</li>
+                        <li><span>Stories: </span> 1</li>
+                        <li><span>Roofing: </span> New</li>
+                    </ul>
                 </div>
 
 
@@ -215,7 +154,7 @@
                     </div>
 
                     <form style="margin-top: 50px">
-                        <h2 style="background-color: #23ad42; text-align: center">TƯ VẤN</h2>
+                        <h2 style="background-color: #23ad42; text-align: center; border-radius: 5px">ĐĂNG KÝ TƯ VẤN</h2>
 
                         <div class="form-floating mb-2">
                             <input type="text" id="form3Example3" class="form-control form-control-lg"

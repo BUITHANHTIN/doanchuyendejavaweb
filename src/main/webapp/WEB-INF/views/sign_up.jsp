@@ -32,14 +32,6 @@
 
 <%-- Hiển thị thông báo lỗi nếu có --%>
 
-<% if (request.getParameter("error") != null) { %>
-<p style="color: red;">Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.</p>
-<% } %>
-
-<%-- Hiển thị thông báo thành công nếu có --%>
-<% if (request.getParameter("success") != null) { %>
-<p style="color: green;">Đăng kí thành công.</p>
-<% } %>  <%-- Form đăng kí --%>
 
 <section class="vh-100">
     <div class="container-fluid h-custom">
@@ -49,8 +41,14 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <% if (request.getParameter("error") != null) { %>
+                    <p style="color: red;">Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.</p>
+                    <% } %>
+                    <%-- Hiển thị thông báo thành công nếu có --%>
+                    <% if (request.getParameter("success") != null) { %>
+                    <p style="color: green;">Đăng kí thành công.</p>
+                    <% } %>  <%-- Form đăng kí --%>
                 <form method="post" action="<c:url value="/register"/>">
-
                     <!-- Username input -->
                     <div class="form-floating mb-2" style="margin-top: 100px">
 
