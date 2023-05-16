@@ -41,19 +41,25 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <div>
                     <% if (request.getParameter("error") != null) { %>
-                    <p style="color: red;">Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.</p>
+                    <div class="alert alert-warning">
+                        <p style="color: red;">Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.</p>
+                    </div>
                     <% } %>
                     <%-- Hiển thị thông báo thành công nếu có --%>
                     <% if (request.getParameter("success") != null) { %>
-                    <p style="color: green;">Đăng kí thành công.</p>
+                    <div class="alert alert-success">
+                        <p style="color: green;">Đăng kí thành công.</p>
+                    </div>
                     <% } %>  <%-- Form đăng kí --%>
-                <form method="post" action="<c:url value="/register"/>">
+                </div>
+                <form method="post" action="<c:url value="/register"/>" style="padding-top: 100px">
                     <!-- Username input -->
-                    <div class="form-floating mb-2" style="margin-top: 100px">
+                    <div class="form-floating mb-2">
 
                         <input type="text" id="form3Example3" class="form-control form-control-lg"
-                                name="fullName" placeholder="Username" required >
+                               name="fullName" placeholder="Username" required>
                         <label class="form-label" for="form3Example3">Tên đăng nhập</label>
                     </div>
 
@@ -78,7 +84,8 @@
                         <input class="btn btn-primary btn-lg"
                                type="submit" value="Đăng kí" style="padding-left: 2.5rem; padding-right: 2.5rem;">
                         <p class="small fw-bold mt-2 pt-1 mb-0">Đã có tài khoản? <a href="<c:url value='/login'/>"
-                                                                                          class="link-danger">Đăng Nhập</a></p>
+                                                                                    class="link-danger">Đăng Nhập</a>
+                        </p>
                     </div>
 
                 </form>

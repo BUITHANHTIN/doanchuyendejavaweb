@@ -38,24 +38,26 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <c:if test="${param.incorrectAccount != null}">
-                    <div class="alert alert-danger">
-                        Username or password incorrect
-                    </div>
-                </c:if>
-                <c:if test="${param.accessDenied != null}">
-                    <div class="alert alert-danger">
-                        you Not authorize
-                    </div>
-                </c:if>
-                <c:if test="${param.sessionTimeout != null}">
-                    <div class="alert alert-danger">
-                        session timeout
-                    </div>
-                </c:if>
-                <form action="j_spring_security_check" id="formLogin" method="post">
+                <div>
+                    <c:if test="${param.incorrectAccount != null}">
+                        <div class="alert alert-danger">
+                            Username or password incorrect
+                        </div>
+                    </c:if>
+                    <c:if test="${param.accessDenied != null}">
+                        <div class="alert alert-danger">
+                            you Not authorize
+                        </div>
+                    </c:if>
+                    <c:if test="${param.sessionTimeout != null}">
+                        <div class="alert alert-danger">
+                            session timeout
+                        </div>
+                    </c:if>
+                </div>
+                <form action="j_spring_security_check" id="formLogin" method="post" style="padding-top: 100px">
                     <!-- Email input -->
-                    <div class="form-floating mb-2" style="margin-top: 100px">
+                    <div class="form-floating mb-2">
                         <input type="text" id="form3Example3" class="form-control form-control-lg" name="j_username"
                                placeholder="Username"/>
                         <label class="form-label" for="form3Example3">Username</label>
