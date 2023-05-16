@@ -301,6 +301,30 @@
         </div>
     </div>
 </section>
+<script>
+    $('#btnUpdateCustomer').click(function () {
+        var data = {};
+        var formData = $('#formEdit').serializeArray();
+        $.each(formData, function (index, item) {
+            data["" + item.name + ""] = item.value;
+        });
+        $.ajax({
+            type: 'POST',
+            url: "/api/customer",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: 'json',
+
+            success: function (data) {
+                window.location = '/admin/customer-list';
+            },
+            error: function (e) {
+                window.location = '/admin/customer-edit';
+                console.log(e);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
