@@ -136,16 +136,20 @@
                         <button id="btnAddCustomer" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
                                 title="Them khach hang"><i
                                 class="fa fa-plus-square" aria-hidden="true"></i></button>
+                        <security:authorize access="hasRole('MANAGER')">
                         <button id="btnDeleteCustomer" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
                                 title="Xoa khach hang"><i
                                 class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </security:authorize>
+
 
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="table-responsive">
                                 <display:table name="modelSearch.listResult" cellspacing="0" cellpadding="0"
                                                requestURI="${customerListURL}" partialList="true" sort="external"
-                                               size="${modelSearch.totalItems}" defaultsort="2" defaultorder="ascending"
+                                               size="${modelSearch.totalItems}" defaultsort="2"
+                                               defaultorder="ascending"
                                                id="tableList"
                                                pagesize="${modelSearch.maxPageItems}"
                                                export="false"
@@ -162,31 +166,31 @@
                                         </fieldset>
                                     </display:column>
                                     <display:column headerClass="text-left" property="fullName" title="Ten"/>
-                                    <display:column headerClass="text-left" property="createdBy" title="Nhan vien quan li"/>
+                                    <display:column headerClass="text-left" property="createdBy"
+                                                    title="Nhan vien quan li"/>
                                     <display:column headerClass="text-left" property="phone" title="Phone"/>
                                     <display:column headerClass="text-left" property="email" title="Email"/>
                                     <display:column headerClass="text-left" property="demand" title="Demand"/>
-                                    <display:column headerClass="text-left" property="createdBy" title="Nguoi nhap"/>
-                                    <display:column headerClass="text-left" property="createdDate" title="Ngay nhap"/>
-                                    <display:column headerClass="text-left" property="fullName" title="Tinh trang"/>
+                                    <display:column headerClass="text-left" property="createdBy"
+                                                    title="Nguoi nhap"/>
+                                    <display:column headerClass="text-left" property="createdDate"
+                                                    title="Ngay nhap"/>
+                                    <display:column headerClass="text-left" property="status" title="Tinh trang"/>
 
                                     <display:column headerClass="col-actions" title="Thao tác">
-                                        <button onclick="assingmentCustomer(${tableList.id})"
-                                                class="btn btn-xs btn-success">
-                                            <i class="ace-icon fa fa-bars bigger-120"></i>
-                                        </button>
+
+                                        <security:authorize access="hasRole('MANAGER')">
+                                            <button onclick="assingmentCustomer(${tableList.id})"
+                                                    class="btn btn-xs btn-success">
+                                                <i class="ace-icon fa fa-bars bigger-120"></i>
+                                            </button>
+                                        </security:authorize>
+
                                         <a href='<c:url value="${customerUpadteURL}?id=${tableList.id}"/>'><i
                                                 class="fa fa-pencil-square bigger-120" aria-hidden="true"></i></a>
-                                        <%-- <c:if test="${tableList.roleCode != 'MANAGER'}">
-                                             <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                                                title="Cập nhật người dùng"
-                                                href='<c:url value="/admin/user-edit-${tableList.id}"/>'>
-                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                             </a>
-                                         </c:if>
-                                         <c:if test="${tableList.roleCode == 'STAFF'}">
-                                             <p>Không đươc thao tác</p>
-                                         </c:if>--%>
+                                        <%--<c:if test="${tableList.roleCode == 'STAFF'}">
+                        <p>Không đươc thao tác</p>
+                        </c:if>--%>
                                     </display:column>
                                 </display:table>
                             </div>

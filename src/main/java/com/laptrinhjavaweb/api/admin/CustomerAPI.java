@@ -21,7 +21,7 @@ public class CustomerAPI {
     UserService userService;
 
     @PostMapping
-    public CustomerDTO createCustome(@RequestBody CustomerDTO customerDTO) {
+    public CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
         return customerService.saveCustomer(customerDTO);
     }
 

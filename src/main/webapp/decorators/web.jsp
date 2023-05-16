@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title><dec:title default="Trang chủ" /></title>
     <meta charset="UTF-8">
     <%--    <title>Trang chủ</title>--%>
     <title><dec:title default="Trang chủ" /></title>

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Royal Estate - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Property</title>
     <meta charset="utf-8">
 </head>
 <body>

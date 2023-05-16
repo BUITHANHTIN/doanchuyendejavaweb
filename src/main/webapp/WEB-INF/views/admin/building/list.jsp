@@ -268,9 +268,12 @@
                         <button id="btnAddBuilding" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
                                 title="Them toa nha"><i
                                 class="fa fa-plus-square" aria-hidden="true"></i></button>
+                        <security:authorize access="hasRole('MANAGER')">
                         <button id="btnDeleteBuilding" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
                                 title="Xoa toa nha"><i
                                 class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </security:authorize>
+
 
                     <div class="row">
                         <div class="col-xs-12">
@@ -306,10 +309,13 @@
 
 
                                     <display:column headerClass="col-actions" title="Thao tác">
-                                        <button onclick="assingmentBuilding(${tableList.id})"
-                                                class="btn btn-xs btn-success">
-                                            <i class="ace-icon fa fa-bars bigger-120"></i>
-                                        </button>
+                                        <security:authorize access="hasRole('MANAGER')">
+                                            <button onclick="assingmentBuilding(${tableList.id})"
+                                                    class="btn btn-xs btn-success">
+                                                <i class="ace-icon fa fa-bars bigger-120"></i>
+                                            </button>
+                                        </security:authorize>
+
                                         <a href='<c:url value="${buildingUpadteURL}?buildingId=${tableList.id}"/>'><i
                                                 class="fa fa-pencil-square bigger-120" aria-hidden="true"></i></a>
                                         <%-- <c:if test="${tableList.roleCode != 'MANAGER'}">
