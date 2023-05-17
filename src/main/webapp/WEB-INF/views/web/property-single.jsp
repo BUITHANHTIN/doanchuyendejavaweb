@@ -160,7 +160,7 @@
                         <div class="form-floating mb-2">
                             <input type="text" id="form3Example3" class="form-control form-control-lg"
                                    name="fullName"
-                                   placeholder="Họ và tên" required/>
+                                   placeholder="Họ và tên"/>
                             <label for="form3Example3">Họ và tên</label>
                         </div>
 
@@ -168,7 +168,7 @@
 
                             <input type="email" id="form3Example4" class="form-control form-control-lg"
                                    id="email" name="email"
-                                   placeholder="Email" required/>
+                                   placeholder="Email"/>
                             <label class="form-label" for="form3Example4">Email</label>
                         </div>
                         <div class="form-floating mb-2">
@@ -181,7 +181,7 @@
 
                             <input type="text" id="form3Example5" class="form-control form-control-lg"
                                    id="sodienthoai" name="phone"
-                                   placeholder="Số điện thoại" />
+                                   placeholder="Số điện thoại"/>
                             <label class="form-label" for="form3Example5">Số điện thoại</label>
                         </div>
                         <div class="text-center text-lg-start mt-4 pt-2">
@@ -313,25 +313,39 @@
 <script>
     $('#btnTuVan').click(function () {
         $('.notifyjs-corner').empty();
+        var notification = document.getElementById("notification");
         var data = {};
         var formData = $('#formTuVan').serializeArray();
         $.each(formData, function (index, item) {
             data["" + item.name + ""] = item.value;
         });
-        $.ajax({
-            type: 'POST',
-            url: "/api/customer",
-            contentType: "application/json",
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (data) {
-                var notification = document.getElementById("notification");
-                notification.innerHTML = "Vui long chờ trong it phut nhan vien se gọi cho ban";
-            },
-            error: function (e) {
+        var hasNullValue = false;
 
+        for (var i = 0; i < formData.length; i++) {
+            if (formData[i].value === null || formData[i].value.trim() === '') {
+                hasNullValue = true;
+                break;
             }
-        });
+        }
+
+        if (hasNullValue) {
+            notification.innerHTML = "Vui long dien day du thong tin";
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: "/api/customer",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (data) {
+                    notification.innerHTML = "Vui long chờ trong it phut nhan vien se gọi cho ban";
+                },
+                error: function (e) {
+
+                }
+            });
+        }
+
     });
 </script>
 
