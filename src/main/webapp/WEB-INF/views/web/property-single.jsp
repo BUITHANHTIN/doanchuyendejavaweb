@@ -153,32 +153,40 @@
                         <li><a href="#">Tầng Trệt <span>(${typeTANGTRET.size()})</span></a></li>
                     </div>
 
-                    <form style="margin-top: 50px">
-                        <h2 style="background-color: #23ad42; text-align: center; border-radius: 5px">ĐĂNG KÝ TƯ VẤN</h2>
+                    <form action="" id="formTuVan" style="margin-top: 50px">
+                        <h2 style="background-color: #23ad42; text-align: center; border-radius: 5px">ĐĂNG KÝ TƯ
+                            VẤN</h2>
 
                         <div class="form-floating mb-2">
                             <input type="text" id="form3Example3" class="form-control form-control-lg"
-                                   id="hovaten" name="hovaten"
-                                   placeholder="Họ và tên"/>
+                                   name="fullName"
+                                   placeholder="Họ và tên" required/>
                             <label for="form3Example3">Họ và tên</label>
                         </div>
 
                         <div class="form-floating mb-2">
 
-                            <input type="text" id="form3Example4" class="form-control form-control-lg"
+                            <input type="email" id="form3Example4" class="form-control form-control-lg"
                                    id="email" name="email"
-                                   placeholder="Email"/>
+                                   placeholder="Email" required/>
                             <label class="form-label" for="form3Example4">Email</label>
+                        </div>
+                        <div class="form-floating mb-2">
+
+                            <input type="hidden" class="form-control form-control-lg"
+                                   name="note" value="Tư vấn cho khách về building có id là ${model.id}"
+                            />
                         </div>
                         <div class="form-floating">
 
                             <input type="text" id="form3Example5" class="form-control form-control-lg"
-                                   id="sodienthoai" name="sodienthoai"
-                                   placeholder="Số điện thoại"/>
+                                   id="sodienthoai" name="phone"
+                                   placeholder="Số điện thoại" />
                             <label class="form-label" for="form3Example5">Số điện thoại</label>
                         </div>
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="submit" class="btn btn-primary btn-lg"
+                            <label style="color: red" class="form-label" id="notification"></label>
+                            <button type="button" id="btnTuVan" class="btn btn-primary btn-lg"
                                     style="padding-left: 2.5rem; padding-right: 2.5rem;">NHẬN TƯ VẤN
                             </button>
                         </div>
@@ -300,6 +308,32 @@
         </div>
     </div>
 </section>
+<script src="web/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $('#btnTuVan').click(function () {
+        $('.notifyjs-corner').empty();
+        var data = {};
+        var formData = $('#formTuVan').serializeArray();
+        $.each(formData, function (index, item) {
+            data["" + item.name + ""] = item.value;
+        });
+        $.ajax({
+            type: 'POST',
+            url: "/api/customer",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (data) {
+                var notification = document.getElementById("notification");
+                notification.innerHTML = "Vui long chờ trong it phut nhan vien se gọi cho ban";
+            },
+            error: function (e) {
+
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
