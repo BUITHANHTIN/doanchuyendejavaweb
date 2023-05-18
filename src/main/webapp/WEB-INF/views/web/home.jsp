@@ -13,15 +13,15 @@
 
 <section class="home-slider owl-carousel">
     <c:forEach var="item" items="${list3Building}">
-        <div class="slider-item" style="background-image:url(${item.avatar})">
+        <c:set var="imagePath" value="/repository${item.avatar}"/>
+        <div class="slider-item" style="background-image:url(${imagePath})">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
                     <div class="col-md-6 text p-4 ftco-animate">
                         <h1 class="mb-3">${item.name}</h1>
                         <span class="location d-block mb-3"><i class="icon-my_location"></i> ${item.address}</span>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p>${item.description}.</p>
                         <span class="price">$${item.rentPrice}</span>
                         <a href="<c:url value="/property-single?id=${item.id}" />" class="btn-custom p-3 px-4 bg-primary">View Details <span
                                 class="icon-plus ml-1"></span></a>
@@ -102,8 +102,9 @@
                     <c:forEach var="item" items="${recentsBuilding}">
                         <div class="item">
                             <div class="properties">
+                                <c:set var="imagePath" value="/repository${item.avatar}"/>
                                 <a href="<c:url value="/property-single?id=${item.id}" />" class="img d-flex justify-content-center align-items-center"
-                                   style="background-image: url(${item.avatar});">
+                                   style="background-image: url(${imagePath});">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-search2"></span>
                                     </div>
@@ -144,8 +145,9 @@
             <c:forEach var="item" items="${mostRecommendedBuilding}">
             <div class="col-sm col-md-6 col-lg ftco-animate">
                 <div class="properties">
+                    <c:set var="imagePath" value="/repository${item.avatar}"/>
                     <a href="<c:url value="/property-single?id=${item.id}" />" class="img img-2 d-flex justify-content-center align-items-center"
-                       style="background-image: url(${item.avatar});">
+                       style="background-image: url(${imagePath});">
                         <div class="icon d-flex justify-content-center align-items-center">
                             <span class="icon-search2"></span>
                         </div>
@@ -378,6 +380,7 @@
             </div>
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
+
                     <a href="blog-single.html" class="block-20"
                        style="background-image: url('img/images/image_4.jpg');">
                     </a>

@@ -35,16 +35,17 @@
                 <div class="row">
                     <div class="col-md-12 ftco-animate">
                         <div class="single-slider owl-carousel">
+                            <c:set var="imagePath" value="/repository${model.avatar}"/>
                             <div class="item">
-                                <div class="properties-img" style="background-image: url(${model.avatar});"></div>
+                                <div class="properties-img" style="background-image: url(${imagePath});"></div>
                             </div>
                             <div class="item">
                                 <div class="properties-img"
-                                     style="background-image: url(${model.avatar});"></div>
+                                     style="background-image: url(${imagePath});"></div>
                             </div>
                             <div class="item">
                                 <div class="properties-img"
-                                     style="background-image: url(${model.avatar});"></div>
+                                     style="background-image: url(${imagePath});"></div>
                             </div>
                         </div>
                     </div>
@@ -53,15 +54,7 @@
                         <p class="rate mb-4">
                             <span class="loc"><a href="#"><i class="icon-map"></i> ${model.address}</a></span>
                         </p>
-                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the
-                            skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of
-                            her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she
-                            continued her way.</p>
-
-                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the
-                            skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of
-                            her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she
-                            continued her way.</p>
+                        <p>${model.description}.</p>
                     </div>
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
                         <h3 class="mb-4">Take A Tour</h3>
@@ -139,7 +132,7 @@
                         <li><span>Floor Area: </span> ${model.floorArea}</li>
                         <li><span>Rent Price: </span>${model.rentPrice}</li>
                         <li><span>Stories: </span> 1</li>
-                        <li><span>Roofing: </span> New</li>
+
                     </ul>
                 </div>
 
@@ -274,9 +267,10 @@
             <c:forEach var="item" items="${mostRecommendedBuilding}">
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="properties">
+                        <c:set var="imagePath" value="/repository${item.avatar}"/>
                         <a href="<c:url value="/property-single?id=${item.id}" />"
                            class="img img-2 d-flex justify-content-center align-items-center"
-                           style="background-image: url(${item.avatar});">
+                           style="background-image: url(${imagePath});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-search2"></span>
                             </div>
@@ -285,7 +279,7 @@
                             <span class="status sale">Sale</span>
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="<c:url value="/property-single?id=${item.id}"/>">${item.address}</a>
+                                    <h3><a href="<c:url value="/property-single?id=${item.id}"/>">${item.name}</a>
                                     </h3>
                                     <p>${item.type}</p>
                                 </div>
@@ -293,7 +287,7 @@
                                     <span class="price">$${item.rentPrice}</span>
                                 </div>
                             </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p>${item.description}</p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="flaticon-selection"></i> ${item.floorArea}</span>

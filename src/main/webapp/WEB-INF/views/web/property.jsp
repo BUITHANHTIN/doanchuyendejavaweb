@@ -173,9 +173,10 @@
             <c:forEach var="item" items="${model}">
                 <div class="col-md-4 ftco-animate">
                     <div class="properties">
+                        <c:set var="imagePath" value="/repository${item.avatar}"/>
                         <a href="<c:url value="/property-single?id=${item.id}"/>"
                            class="img img-2 d-flex justify-content-center align-items-center"
-                           style="background-image: url(${item.avatar});">
+                           style="background-image: url(${imagePath});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-search2"></span>
                             </div>
