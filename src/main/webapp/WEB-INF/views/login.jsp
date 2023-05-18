@@ -37,36 +37,36 @@
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                      class="img-fluid" alt="Sample image">
             </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-center" style="padding-top: 100px">
                 <div>
                     <c:if test="${param.incorrectAccount != null}">
                         <div class="alert alert-danger">
-                            Username or password incorrect
+                            Username or Password incorrect
                         </div>
                     </c:if>
                     <c:if test="${param.accessDenied != null}">
                         <div class="alert alert-danger">
-                            you Not authorize
+                            You Not Authorize
                         </div>
                     </c:if>
                     <c:if test="${param.sessionTimeout != null}">
                         <div class="alert alert-danger">
-                            session timeout
+                            Session Timeout
                         </div>
                     </c:if>
                 </div>
-                <form action="j_spring_security_check" id="formLogin" method="post" style="padding-top: 100px">
+                <form action="j_spring_security_check" id="formLogin" method="post" style="">
                     <!-- Email input -->
                     <div class="form-floating mb-2">
                         <input type="text" id="form3Example3" class="form-control form-control-lg" name="j_username"
-                               placeholder="Username"/>
+                               placeholder="Username" autocomplete="off" required/>
                         <label class="form-label" for="form3Example3">Username</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-floating mb-2">
                         <input type="password" id="form3Example4" class="form-control form-control-lg" name="j_password"
-                               placeholder="Mật khẩu"/>
+                               placeholder="Mật khẩu" autocomplete="off" required/>
                         <label class="form-label" for="form3Example4">Password</label>
                     </div>
 

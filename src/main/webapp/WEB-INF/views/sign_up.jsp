@@ -40,10 +40,10 @@
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                      class="img-fluid" alt="Sample image">
             </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-center " style="padding-top: 100px">
                 <div>
                     <% if (request.getParameter("error") != null) { %>
-                    <div class="alert alert-warning">
+                    <div class="alert alert-danger">
                         <p style="color: red;">Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.</p>
                     </div>
                     <% } %>
@@ -54,7 +54,7 @@
                     </div>
                     <% } %>  <%-- Form đăng kí --%>
                 </div>
-                <form method="post" action="<c:url value="/register"/>" style="padding-top: 100px">
+                <form method="post" action="<c:url value="/register"/>">
                     <!-- Username input -->
                     <div class="form-floating mb-2">
 

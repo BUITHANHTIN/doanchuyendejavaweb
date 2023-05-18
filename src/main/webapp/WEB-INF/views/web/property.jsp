@@ -188,13 +188,13 @@
                                     <p>${item.street}</p>
                                 </div>
                                 <div class="two">
-                                    <span class="price">${item.rentPriceDescription}</span>
+                                    <span class="price">${item.rentPrice} tỷ</span>
                                 </div>
                             </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p>${item.description.substring(0,60)}...</p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="flaticon-selection"></i>200m²</span>
+                                <span><i class="flaticon-selection"></i>${item.floorArea}m²</span>
                                 <span class="ml-auto"><i class="flaticon-bathtub"></i> ${item.bathroom}</span>
                                 <span><i class="flaticon-bed"></i> ${item.bedroom}</span>
                             </p>
@@ -230,7 +230,10 @@
 
             </div>
         </c:if>
-        <c:if test="${totalPages==0}"> Không tìm thấy sản phẩm </c:if>
+        <div class="text-center">
+            <c:if test="${totalPages==0}"> Không tìm thấy sản phẩm </c:if>
+        </div>
+
     </div>
 </section>
 
