@@ -54,7 +54,9 @@
                         <p class="rate mb-4">
                             <span class="loc"><a href="#"><i class="icon-map"></i> ${model.address}</a></span>
                         </p>
+
                         <p>${model.description}.</p>
+
                     </div>
                     <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
                         <h3 class="mb-4">Take A Tour</h3>
@@ -123,15 +125,21 @@
             <div class="col-lg-4 sidebar ftco-animate">
 
                 <div class="d-md-flex mt-5 mb-5">
-                    <ul>
-                        <li><span>Lot Area: </span> ${model.floorArea}</li>
-                        <li><span>Bed Rooms: </span> ${model.bedroom}</li>
-                        <li><span>Bath Rooms: </span> ${model.bathroom}</li>
+                    <ul style="list-style: none">
+                        <li><span></span>${model.name}</li>
+                        <li><span>Diện tích:</span> ${model.floorArea}m²</li>
                     </ul>
+
                     <ul class="ml-md-5">
                         <li><span>Floor Area: </span> ${model.floorArea}</li>
                         <li><span>Rent Price: </span>${model.rentPrice}</li>
                         <li><span>Stories: </span> 1</li>
+
+                    <ul class="ml-md-5 " style="list-style: none">
+                        <li><span>Giá:</span> ${model.rentPrice}tỷ</li>
+                        <li><span>Bed:</span> ${model.bedroom}rooms</li>
+                        <li><span>Bath:</span> ${model.bathroom}rooms</li>
+
 
                     </ul>
                 </div>
@@ -147,7 +155,7 @@
                     </div>
 
                     <form action="" id="formTuVan" style="margin-top: 50px">
-                        <h2 style="background-color: #23ad42; text-align: center; border-radius: 5px">ĐĂNG KÝ TƯ
+                        <h2 style="background-color: #23ad42; color: white ;text-align: center; border-radius: 5px">ĐĂNG KÝ TƯ
                             VẤN</h2>
 
                         <div class="form-floating mb-2">
@@ -284,7 +292,7 @@
                                     <p>${item.type}</p>
                                 </div>
                                 <div class="two">
-                                    <span class="price">$${item.rentPrice}</span>
+                                    <span class="price">${item.rentPrice} tỷ</span>
                                 </div>
                             </div>
                             <p>${item.description}</p>
@@ -300,6 +308,9 @@
             </c:forEach>
 
         </div>
+    </div>
+    <div>
+        <img src="D://Education//chuyendeweb//img//building//building1.jpg">
     </div>
 </section>
 <script src="web/js/jquery-3.2.1.min.js"></script>
@@ -323,7 +334,7 @@
         }
 
         if (hasNullValue) {
-            notification.innerHTML = "Vui long dien day du thong tin";
+            notification.innerHTML = "Vui lòng điền đầy đủ thông tin.";
         } else {
             $.ajax({
                 type: 'POST',
@@ -332,7 +343,7 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (data) {
-                    notification.innerHTML = "Vui long chờ trong it phut nhan vien se gọi cho ban";
+                    notification.innerHTML = "Vui lòng chờ ít phút, nhân viên tư vấn sẽ liên hệ.";
                 },
                 error: function (e) {
 
