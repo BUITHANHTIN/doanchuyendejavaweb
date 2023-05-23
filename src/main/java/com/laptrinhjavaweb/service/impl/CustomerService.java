@@ -133,16 +133,7 @@ public class CustomerService implements ICustomerService {
         return customerRepository.countTotalItemFindConditionCustomer(searchBuilder);
     }
 
-    @Override
-    public List<CustomerDTO> showAllCustommer() {
-        List<CustomerDTO> customerDTOS = new ArrayList<>();
-        List<CustomerEntity> customerEntities = customerRepository.showAllCustommer();
-        for (CustomerEntity entity : customerEntities) {
 
-            customerDTOS.add(customerConverter.convertToDto(entity));
-        }
-        return customerDTOS;
-    }
 
     @Override
     public int countTotalCustomer() {

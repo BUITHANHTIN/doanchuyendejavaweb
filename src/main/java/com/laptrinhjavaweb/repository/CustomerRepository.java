@@ -17,5 +17,5 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long>,
 
     Long countByIdIn(Long[] id);
 
-    List<CustomerEntity> showAllCustommer();
+    List<CustomerEntity> findAll();
 }

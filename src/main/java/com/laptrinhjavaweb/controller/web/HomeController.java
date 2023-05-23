@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.laptrinhjavaweb.repository.CustomerRepository;
+import com.laptrinhjavaweb.repository.RoleRepository;
 import com.laptrinhjavaweb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -28,20 +30,28 @@ import com.laptrinhjavaweb.service.impl.UserService;
 public class HomeController {
     @Autowired
     BuildingService buildingService;
+
     @Autowired
     DistrictBuildingService districtBuildingService;
+
     @Autowired
     UserService userService;
 
     @Autowired
     CustomerService customerService;
+
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    RoleRepository roleRepository;
     @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("web/home");
         mav.addObject("showAllBuilding", buildingService.showAllBuilding());
+        mav.addObject("agents", userRepository.listAgents());
         mav.addObject("recentsBuilding", buildingService.recentsBuilding());
         mav.addObject("list3Building", buildingService.findByTop3Building());
         mav.addObject("mostRecommendedBuilding", buildingService.mostRecommendedBuilding());
@@ -52,7 +62,7 @@ public class HomeController {
     @RequestMapping(value = "/agents", method = RequestMethod.GET)
     public ModelAndView agentsPage() {
         ModelAndView mav = new ModelAndView("web/agents");
-        mav.addObject("agents", userRepository.listAgents());
+        mav.addObject("user", userRepository.listAgents());
         return mav;
     }
 

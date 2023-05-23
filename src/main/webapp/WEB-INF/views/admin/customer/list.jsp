@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Danh sách tòa nhà</title>
+    <title>Danh sách khách hàng</title>
     <!-- <title>Trang chủ</title> -->
 </head>
 <body>
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="widget-box">
                     <div class="widget-header">
-                        <h4 class="widget-title">Tim Kiem</h4>
+                        <h4 class="widget-title">Tìm Kiếm</h4>
 
                         <div class="widget-toolbar">
                             <a href="#" data-action="collapse">
@@ -78,13 +78,13 @@
                                                 <div class="col-sm-4">
                                                     <input name="searchValue" value="searchValue" type="hidden"
                                                            class="form-control"/>
-                                                    <label for="fullName">Ten khach hang</label>
+                                                    <label for="fullName">Tên khách hàng</label>
 
                                                     <forn:input path="fullName" cssClass="form-control"/>
                                                 </div>
 
                                                 <div class="col-sm-4">
-                                                    <label>So dien thoai</label>
+                                                    <label>Số điện thoại</label>
 
                                                     <forn:input path="phone" cssClass="form-control"/>
                                                 </div>
@@ -100,17 +100,16 @@
 
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <label>Nhan vien quan li</label>
+                                                    <label>Nhân viên quản lý</label>
                                                     <form:select path="staffId">
-                                                        <form:option value="" label="--Chon nhan vien--"/>
+                                                        <form:option value="" label="--Nhân viên--"/>
                                                         <form:options items="${userList}"/>
                                                     </form:select>
 
 
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <button id="btnSearch" type="button" class="btn btn-success">Tim
-                                                        kiem
+                                                    <button id="btnSearch" type="button" class="btn btn-success">Tìm Kiếm
                                                     </button>
                                                 </div>
 
@@ -134,11 +133,11 @@
                 <div class="widget-main">
                     <p style="float: right;">
                         <button id="btnAddCustomer" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
-                                title="Them khach hang"><i
+                                title="Thêm khách hàng"><i
                                 class="fa fa-plus-square" aria-hidden="true"></i></button>
                         <security:authorize access="hasRole('MANAGER')">
                         <button id="btnDeleteCustomer" class="btn btn-white btn-info btn-bold" data-toggle="tooltip"
-                                title="Xoa khach hang"><i
+                                title="Xóa khách hàng"><i
                                 class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </security:authorize>
 
@@ -165,17 +164,17 @@
                                                    id="checkbox_${tableList.id}" class="check-box-element"/>
                                         </fieldset>
                                     </display:column>
-                                    <display:column headerClass="text-left" property="fullName" title="Ten"/>
+                                    <display:column headerClass="text-left" property="fullName" title="Tên"/>
                                     <display:column headerClass="text-left" property="createdBy"
-                                                    title="Nhan vien quan li"/>
+                                                    title="Nhân viên quản lý"/>
                                     <display:column headerClass="text-left" property="phone" title="Phone"/>
                                     <display:column headerClass="text-left" property="email" title="Email"/>
                                     <display:column headerClass="text-left" property="demand" title="Demand"/>
                                     <display:column headerClass="text-left" property="createdBy"
-                                                    title="Nguoi nhap"/>
+                                                    title="Người nhập"/>
                                     <display:column headerClass="text-left" property="createdDate"
-                                                    title="Ngay nhap"/>
-                                    <display:column headerClass="text-left" property="status" title="Tinh trang"/>
+                                                    title="Ngày nhập"/>
+                                    <display:column headerClass="text-left" property="status" title="Tình trạng"/>
 
                                     <display:column headerClass="col-actions" title="Thao tác">
 
@@ -209,7 +208,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Danh sach nhan vien</h5>
+                <h5 class="modal-title">Danh sách khách hàng</h5>
             </div>
             <div class="modal-body">
                 <table id="assignmentCustomer-table" class="table">

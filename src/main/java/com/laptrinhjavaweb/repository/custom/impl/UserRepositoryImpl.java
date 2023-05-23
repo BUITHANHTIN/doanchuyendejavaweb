@@ -17,7 +17,9 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
     @Override
     public List<UserEntity> listAgents() {
-        String finalSql = "SELECT  *  FROM estateadvance.user inner join estateadvance.user_role on user.id = user_role.userid where user.status = 1 and user_role.roleid = 2 or user_role.roleid = 1";
+        String finalSql = "select * from estateadvance.user\n" +
+                "inner join estateadvance.user_role on estateadvance.user.id = estateadvance.user_role.userid\n" +
+                "inner join estateadvance.role on estateadvance.role.id = estateadvance.user_role.roleid; ";
         Query query = entityManager.createNativeQuery(finalSql, UserEntity.class);
         return query.getResultList();
     }

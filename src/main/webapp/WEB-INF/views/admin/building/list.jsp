@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="widget-box">
                     <div class="widget-header">
-                        <h4 class="widget-title">Tim Kiem</h4>
+                        <h4 class="widget-title">Searcn</h4>
 
                         <div class="widget-toolbar">
                             <a href="#" data-action="collapse">
@@ -79,7 +79,7 @@
                                                 <div class="col-sm-6">
                                                     <input name="searchValue" value="searchValue" type="hidden"
                                                            class="form-control"/>
-                                                    <label for="name">Ten toa nha nhe</label>
+                                                    <label for="name">Tên</label>
 
                                                         <%--<input name="name" type="text" id="name" placeholder="" class="form-control"/>--%>
                                                         <%--    <forn:input path="name" cssClass="form-control"/>--%>
@@ -88,7 +88,7 @@
                                                 </div>
 
                                                 <div class="col-sm-6">
-                                                    <label>Dien tich san</label>
+                                                    <label>Diện tích sàn</label>
 
                                                     <input value="${modelSearch.floorArea}" name="floorArea"
                                                            type="number"
@@ -101,7 +101,7 @@
                                             <!-- PAGE CONTENT BEGINS -->
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <label for="district">Quan hien co</label>
+                                                    <label for="district">Quận</label>
 
                                                     <form:select path="district">
                                                         <form:option value="" label="--Chon quan"/>
@@ -111,13 +111,13 @@
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label>Phuong</label>
+                                                    <label>Phường</label>
 
                                                     <input name="ward" value="${modelSearch.ward}" type="text"
                                                            placeholder="" class="form-control"/>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label>Duong</label>
+                                                    <label>Đường</label>
 
                                                     <input value="${modelSearch.street}" name="street" type="text"
                                                            placeholder=""
@@ -128,7 +128,7 @@
                                             <!-- PAGE CONTENT BEGINS -->
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <label for="basement">So tang ham</label>
+                                                    <label for="basement">Số tầng hầm</label>
                                                     <input value="${modelSearch.numberOfBasement}"
                                                            name="numberOfBasement" type="number" id="basement"
                                                            placeholder=""
@@ -136,14 +136,14 @@
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label for="direction">Huong</label>
+                                                    <label for="direction">Hướng</label>
 
                                                     <input value="${modelSearch.direction}" name="direction" type="text"
                                                            id="direction" placeholder=""
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label for="level">Hang</label>
+                                                    <label for="level">Hạng</label>
 
                                                     <input value="${modelSearch.level}" name="level"
                                                            type="text" id="level" placeholder=""
@@ -154,14 +154,14 @@
                                             <!-- PAGE CONTENT BEGINS -->
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <label>Dien tich tu</label>
+                                                    <label>Diện tích (tối thiểu)</label>
                                                     <input value="${modelSearch.areaFrom}" name="areaFrom" type="number"
                                                            placeholder=""
                                                            class="form-control"/>
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label>Dien tich den</label>
+                                                    <label>Diện tích (tối đa)</label>
 
                                                     <input value="${modelSearch.areaTo}" name="areaTo" type="number"
                                                            placeholder=""
@@ -169,7 +169,7 @@
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label>Gia thue tu</label>
+                                                    <label>Giá (tối thiểu)</label>
 
                                                     <input value="${modelSearch.priceFrom}" name="priceFrom"
                                                            type="number"
@@ -177,7 +177,7 @@
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label>Gia thue den</label>
+                                                    <label>Giá (tối đa)</label>
 
                                                     <input value="${modelSearch.priceTo}" name="priceTo"
                                                            type="number" placeholder=""
@@ -188,14 +188,14 @@
                                             <!-- PAGE CONTENT BEGINS -->
                                             <div class="col-xs-12">
                                                 <div class="col-sm-3">
-                                                    <label for="nameManage">Ten quan li</label>
+                                                    <label for="nameManage">Người quản lý</label>
                                                     <input value="${modelSearch.manageName}" name="manageName"
                                                            type="text" id="nameManage" placeholder=""
                                                            class="form-control"/>
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label for="phoneManage">Dien thoai quan li</label>
+                                                    <label for="phoneManage">Số điện thoại quản lý</label>
 
                                                     <input value="${modelSearch.manageOfPhone}" name="manageOfPhone"
                                                            type="number" id="phoneManage"
@@ -204,7 +204,7 @@
                                                 </div>
 
                                                 <div class="col-sm-3">
-                                                    <label>Chon nhan vien phu trach</label>
+                                                    <label>Nhân viên phụ trách</label>
                                                     <form:select path="staffInCharge">
                                                         <form:option value="" label="--Chon nhan vien"/>
                                                         <form:options items="${userList}"/>
@@ -240,8 +240,7 @@
                                                         <%--</c:forEach>--%>
 
                                                     <div>
-                                                        <button id="btnSearch" type="button" class="btn btn-success">Tim
-                                                            kiem
+                                                        <button id="btnSearch" type="button" class="btn btn-success">Tìm Kiếm
                                                         </button>
                                                     </div>
 
@@ -346,7 +345,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Danh sach nhan vien</h5>
+                <h5 class="modal-title">Danh sách nhân viên</h5>
             </div>
             <div class="modal-body">
                 <table id="assignmentBuilding-table" class="table">

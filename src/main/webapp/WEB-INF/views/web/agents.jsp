@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: AN515-43
@@ -6,6 +7,7 @@
   Time: 3:01 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,14 +30,23 @@
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
-            <c:forEach var="item" items="${agents}">
+
+            <c:forEach var="item" items="${user}">
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
-                        <div class="img" style="background-image:url('img/images/staff-1.jpg');"></div>
+                        <div class="img" style="background-image:url('img/images/avt.jpg');"></div>
                         <div class="text pt-4">
-                            <h3><a href="#">name</a></h3>
-                            <span class="position mb-2">4 Listing</span>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            <h3><a href="#">${item.fullName}</a></h3>
+<%--                            <span>${item.code}</span>--%>
+                            <c:if test="${item.status == 1}">
+                                <span class="position mb-2">Đang hoạt động</span>
+                            </c:if>
+                            <c:if test="${item.status != 1}">
+                                <span class="position mb-2" style="color: #f66767">Ngừng hoạt động</span>
+                            </c:if>
+                            <a href="tel:${item.phone}"><span>${item.phone}</span></a>
+                            <br>
+                            <a href="mailto${item.email}"><span>${item.email}</span></a>
                             <ul class="ftco-social d-flex">
                                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -47,21 +58,21 @@
                 </div>
             </c:forEach>
         </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <%--        <div class="row mt-5">--%>
+        <%--            <div class="col text-center">--%>
+        <%--                <div class="block-27">--%>
+        <%--                    <ul>--%>
+        <%--                        <li><a href="#">&lt;</a></li>--%>
+        <%--                        <li class="active"><span>1</span></li>--%>
+        <%--                        <li><a href="#">2</a></li>--%>
+        <%--                        <li><a href="#">3</a></li>--%>
+        <%--                        <li><a href="#">4</a></li>--%>
+        <%--                        <li><a href="#">5</a></li>--%>
+        <%--                        <li><a href="#">&gt;</a></li>--%>
+        <%--                    </ul>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
     </div>
 </section>
 </body>

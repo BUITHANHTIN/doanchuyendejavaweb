@@ -192,7 +192,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="${countCustomer}">0</strong>
+                                <strong class="number" data-number="87">0</strong>
                                 <span>Happy Customers</span>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="${countBuilding}">0</strong>
+                                <strong class="number" data-number="${showAllBuilding.size()}">0</strong>
                                 <span>Properties</span>
                             </div>
                         </div>
@@ -208,7 +208,7 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="1000">0</strong>
+                                <strong class="number" data-number="${agents.size()}">0</strong>
                                 <span>Agents</span>
                             </div>
                         </div>

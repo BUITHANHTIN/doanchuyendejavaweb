@@ -19,6 +19,6 @@ public interface CustomerRepositoryCustom {
 
     int countTotalItemFindConditionCustomer(CustomerSearchBuilder dto);
 
-    List<CustomerEntity> showAllCustommer();
+
 
 }

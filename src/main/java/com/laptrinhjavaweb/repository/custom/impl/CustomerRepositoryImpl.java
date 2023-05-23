@@ -72,14 +72,6 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
         return query.getResultList().size();
     }
 
-    @Override
-    public List<CustomerEntity> showAllCustommer() {
-        String finalSql = "select * from estateadvance.customer ";
-        Query query = entityManager.createNativeQuery(finalSql, BuildingEntity.class);
-        return query.getResultList();
-
-    }
-
 
     private void buildQueryWithJoin(CustomerSearchBuilder customerSearchBuilder, StringBuilder joinQuery,
                                     StringBuilder whereQuery) {

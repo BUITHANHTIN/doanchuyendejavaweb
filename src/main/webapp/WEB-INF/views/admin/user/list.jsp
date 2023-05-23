@@ -36,7 +36,7 @@
                     </li>
                     <li class="active">
                         <%--<spring:message code="label.user.list"/>--%>
-                            Danh sách người dùng
+                            Danh sách nhân viên
                     </li>
                 </ul>
                 <!-- /.breadcrumb -->

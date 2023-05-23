@@ -31,7 +31,7 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <div class="row">
                     <div class="col-md-12 ftco-animate">
                         <div class="single-slider owl-carousel">
@@ -122,29 +122,18 @@
 
                 </div>
             </div> <!-- .col-md-8 -->
-            <div class="col-lg-4 sidebar ftco-animate">
-
-                <div class="d-md-flex mt-5 mb-5">
+            <div class="col-lg-5 sidebar ftco-animate">
+                <div class="d-md-flex mt-5 mb-3">
                     <ul style="list-style: none">
-                        <li><span></span>${model.name}</li>
+                        <li><span style="color: #4a92fc">${model.name}</span></li>
                         <li><span>Diện tích:</span> ${model.floorArea}m²</li>
+                        <li><span>Giá: ${model.rentPrice} tỷ</span></li>
                     </ul>
-
-                    <ul class="ml-md-5">
-                        <li><span>Floor Area: </span> ${model.floorArea}</li>
-                        <li><span>Rent Price: </span>${model.rentPrice}</li>
-                        <li><span>Stories: </span> 1</li>
-
-                    <ul class="ml-md-5 " style="list-style: none">
-                        <li><span>Giá:</span> ${model.rentPrice}tỷ</li>
-                        <li><span>Bed:</span> ${model.bedroom}rooms</li>
-                        <li><span>Bath:</span> ${model.bathroom}rooms</li>
-
-
+                    <ul class="ml-md-3 " style="list-style: none">
+                        <li><span>Bedroom:</span>${model.bedroom}</li>
+                        <li><span>Bathroom:</span>${model.bathroom}</li>
                     </ul>
                 </div>
-
-
                 <div class="sidebar-box ftco-animate">
                     <div class="categories">
                         <h3>Categories</h3>
