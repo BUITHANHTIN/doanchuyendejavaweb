@@ -14,6 +14,16 @@ public class UserDTO extends AbstractDTO {
     private List<RoleDTO> roles = new ArrayList<>();
     private String roleName;
     private String roleCode;
+    private String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     private Map<String,String> roleDTOs = new HashMap<>();
 
     public String getUserName() {

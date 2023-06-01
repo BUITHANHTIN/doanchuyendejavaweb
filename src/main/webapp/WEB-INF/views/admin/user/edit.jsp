@@ -1,10 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/common/taglib.jsp" %>
-<c:url var="formUrl" value="/api/user"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Chỉnh sửa người dùng</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Thêm nhân viên</title>
+    <!-- <title>Trang chủ</title> -->
 </head>
+<body>
 <div class="main-content">
     <div class="main-content-inner">
         <div class="breadcrumbs" id="breadcrumbs">
@@ -14,168 +18,156 @@
                 } catch (e) {
                 }
             </script>
+
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">Trang chủ</a>
+                    <a href="#">Home</a>
                 </li>
-                <li class="active">Chỉnh sửa người dùng</li>
+                <li class="active">Dashboard</li>
             </ul><!-- /.breadcrumb -->
+
+
         </div>
+
         <div class="page-content">
-            <div class="row">
-                <div class="col-xs-12">
-                    <c:if test="${not empty messageResponse}">
-                        <div class="alert alert-block alert-${alert}">
-                            <button type="button" class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
-                            </button>
-                                ${messageResponse}
+
+
+            <div class="page-header">
+                <h1>
+                    Dashboard
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        overview &amp; stats
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+
+            <div class="widget-body">
+
+                <div class="widget-main">
+                    <div class="form-horizontal">
+                        <form:form action="" id="formEdit" method="GET">
+                        <div class="row">
+
+                            <!-- PAGE CONTENT BEGINS -->
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Full Name </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" value="${user.fullName}" name="fullName"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Email </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" value="${user.userName}" name="userName"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Phone</label>
+
+                                    <div class="col-sm-9">
+                                        <input name="phone" value="${user.phone}" type="text" id="company"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">
+                                    </label>
+                                    <div class="col-sm-9">
+
+                                        <c:if test="${user!=null}">
+                                            <button id="btnEditUser" type="button" class="btn btn-primary">Edit User
+                                            </button>
+                                        </c:if>
+                                        <c:if test="${user==null}">
+                                            <button id="btnAddUser" type="button" class="btn btn-primary">Add User
+                                            </button>
+                                        </c:if>
+                                        <button id="btnCloseUser" type="button" class="btn btn-primary">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="userId" name="id" value="${user.id}">
+
+                                <!-- PAGE CONTENT ENDS -->
+                            </div><!-- /.col -->
+
+
                         </div>
-                    </c:if>
-                    <form:form id="formEdit" class="form-horizontal" commandName="model">
-                    <div id="profile">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Vai trò</label>
-                            <div class="col-sm-9">
-                                <form:select path="roleCode" id="roleCode">
-                                    <form:option value="" label="--- Chọn vai trò ---"/>
-                                    <form:options items="${model.roleDTOs}"/>
-                                </form:select>
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">
-                                <%--<spring:message code="label.username"/>--%> Tên đăng nhập
-                            </label>
-                            <div class="col-sm-9">
-                                <c:if test="${not empty model.id}">
-                                    <form:input path="userName" id="userName" cssClass="form-control" disabled="true"/>
-                                </c:if>
-                                <c:if test="${empty model.id}">
-                                    <form:input path="userName" id="userName" cssClass="form-control"/>
-                                </c:if>
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">
-                                <%--<spring:message code="label.fullname"/>--%>
-                                Tên đầy đủ
-                            </label>
-                            <div class="col-sm-9">
-                                <form:input path="fullName" id="fullName" cssClass="form-control"/>
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-                        <!--Btn-->
-                        <div class="col-sm-12">
-                            <label class="col-sm-3 control-label no-padding-right message-info"></label>
-                            <c:if test="${not empty model.id}">
-                                <input type="button" class="btn btn-white btn-warning btn-bold"
-                                       value="Cập nhật người dùng" id="btnAddOrUpdateUsers"/>
-                                <input type="button" class="btn btn-white btn-warning btn-bold"
-                                       value="Reset mật khẩu" id="btnResetPassword"/>
-                                <img src="/img/loading.gif" style="display: none; height: 100px" id="loading_image">
-                            </c:if>
-                            <c:if test="${empty model.id}">
-                                <input type="button" class="btn btn-white btn-warning btn-bold"
-                                       value="Thêm mới người dùng" id="btnAddOrUpdateUsers"/>
-                                <img src="/img/loading.gif" style="display: none; height: 100px" id="loading_image">
-                            </c:if>
-                        </div>
-                        <!--Btn-->
-                        <form:hidden path="id" id="userId"/>
-                        </form:form>
+
+                        <!-- PAGE CONTENT ENDS -->
                     </div>
-                </div>
-            </div>
+                    <!-- /.col -->
+                    </form:form>
+                    <div class="form-group">
+
+                    </div>
+
+
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
         </div>
-    </div>
-</div>
+    </div><!-- /.main-content -->
+</div><!-- /.main-content -->
 <script>
-    $("#btnAddOrUpdateUsers").click(function (event) {
-        event.preventDefault();
-        var formData = $("#formEdit").serializeArray();
-        var dataArray = {};
-        $.each(formData, function (i, v) {
-            dataArray["" + v.name + ""] = v.value;
+    $('#btnAddUser').click(function () {
+        var data = {};
+        var formData = $('#formEdit').serializeArray();
+        $.each(formData, function (index, item) {
+            data["" + item.name + ""] = item.value;
         });
-        if ($('#userId').val() != "") {
-            var userId = $('#userId').val();
-            var roleCode = dataArray['roleCode'];
-            if (roleCode != '') {
-                updateUser(dataArray, $('#userId').val());
-            } else {
-                window.location.href = "<c:url value='/admin/user-edit-"+userId+"?message=role_require'/>";
-            }
-        }
-        else {
-            var userName = dataArray['userName'];
-            var roleCode = dataArray['roleCode'];
-            if (userName != '' && roleCode != '') {
-                $('#loading_image').show();
-                addUser(dataArray);
-            } else {
-                window.location.href = "<c:url value='/admin/user-edit?message=username_role_require'/>";
-            }
-        }
-    });
-
-    $('#btnResetPassword').click(function (event) {
-        event.preventDefault();
-        $('#loading_image').show();
-        resetPassword($('#userId').val());
-    });
-
-    function addUser(data) {
         $.ajax({
-            url: '${formUrl}',
             type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
+            url: "/api/user",
+            contentType: "application/json",
             data: JSON.stringify(data),
-            success: function (res) {
-                $('#loading_image').hide();
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=insert_success'/>";
+            dataType: 'json',
+
+            success: function (data) {
+                window.location = '/admin/user-list';
             },
-            error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=error_system'/>";
+            error: function (e) {
+                window.location = '/admin/user-add';
+                console.log(e);
             }
         });
-    }
-
-    function updateUser(data, id) {
+    });
+    $('#btnEditUser').click(function () {
+        var data = {};
+        var id = $('#userId').val();
+        var formData = $('#formEdit').serializeArray();
+        $.each(formData, function (index, item) {
+            data["" + item.name + ""] = item.value;
+        });
         $.ajax({
-            url: '${formUrl}/' + id,
             type: 'PUT',
-            dataType: 'json',
-            contentType: 'application/json',
+            url: "/api/user/" + id,
+            contentType: "application/json",
             data: JSON.stringify(data),
-            success: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=update_success'/>";
-            },
-            error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";
-            }
-        });
-    }
-
-    function resetPassword(id) {
-        $.ajax({
-            url: '${formUrl}/password/'+id+'/reset',
-            type: 'PUT',
             dataType: 'json',
-            success: function (res) {
-                $('#loading_image').hide();
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=reset_password_success'/>";
+
+            success: function (data) {
+                window.location = '/admin/user-list';
             },
-            error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";
+            error: function (e) {
+                window.location = '/admin/user-add';
+                console.log(e);
             }
         });
-    }
+    });
+
+
 </script>
 </body>
 </html>

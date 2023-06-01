@@ -7,7 +7,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.laptrinhjavaweb.builder.CustomerSearchBuilder;
+import com.laptrinhjavaweb.builder.UserSearchBuilder;
+import com.laptrinhjavaweb.dto.CustomerDTO;
+import com.laptrinhjavaweb.dto.Request.UserSearchRequestDTO;
+import com.laptrinhjavaweb.entity.CustomerEntity;
 import com.laptrinhjavaweb.repository.CustomerRepository;
+import com.laptrinhjavaweb.security.utils.SecurityUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -110,6 +116,7 @@ public class UserService implements IUserService {
     @Override
     @Transactional
     public UserDTO insert(UserDTO newUser) {
+        newUser.setRoleCode("STAFF");
         RoleEntity role = roleRepository.findOneByCode(newUser.getRoleCode());
         UserEntity userEntity = userConverter.convertToEntity(newUser);
         userEntity.setRoles(Stream.of(role).collect(Collectors.toList()));
@@ -121,11 +128,15 @@ public class UserService implements IUserService {
     @Override
     @Transactional
     public UserDTO update(Long id, UserDTO updateUser) {
+        updateUser.setRoleCode("STAFF");
         RoleEntity role = roleRepository.findOneByCode(updateUser.getRoleCode());
         UserEntity oldUser = userRepository.findOneById(id);
-        // userRepository.findOne(id);
         UserEntity userEntity = userConverter.convertToEntity(updateUser);
-        userEntity.setUserName(oldUser.getUserName());
+        userEntity.setUserName(updateUser.getUserName());
+        userEntity.setFullName(updateUser.getFullName());
+        userEntity.setPhone(updateUser.getPhone());
+
+
         userEntity.setStatus(oldUser.getStatus());
         userEntity.setRoles(Stream.of(role).collect(Collectors.toList()));
         userEntity.setPassword(oldUser.getPassword());
@@ -214,6 +225,41 @@ public class UserService implements IUserService {
         RoleEntity role = roleRepository.findOneByCode(userDTO.getRoleCode());
         entity.setRoles(Stream.of(role).collect(Collectors.toList()));
         userRepository.save(entity);
+    }
+
+    @Override
+    public int countTotalItemFindAllUser() {
+        return userRepository.countTotalItemFindAllUser();
+    }
+
+    @Override
+    public List<UserDTO> findAll(Pageable pageable) {
+
+        List<UserDTO> userDTOList = new ArrayList<>();
+        for (UserEntity entity : userRepository.listAll(pageable)) {
+            UserDTO userDTO = userConverter.convertToDto(entity);
+            userDTOList.add(userDTO);
+        }
+        return userDTOList;
+    }
+
+    @Override
+    public List<UserDTO> findByCondition(UserSearchRequestDTO userSearchRequestDTO, Pageable pageable) {
+        UserSearchBuilder searchBuilder = userConverter.convertToBuilder(userSearchRequestDTO);
+        List<UserDTO> userDTOList = new ArrayList<>();
+        List<UserEntity> userEntityList = userRepository.findByCondition(searchBuilder, pageable);
+        ;
+        for (UserEntity entity : userEntityList) {
+            UserDTO dto = userConverter.convertToDto(entity);
+            userDTOList.add(dto);
+        }
+        return userDTOList;
+    }
+
+    @Override
+    public int countTotalItemFindConditionUser(UserSearchRequestDTO dto) {
+        UserSearchBuilder searchBuilder = userConverter.convertToBuilder(dto);
+        return userRepository.countTotalItemFindConditionUser(searchBuilder);
     }
 
     public List<UserDTO> listUserDto() {

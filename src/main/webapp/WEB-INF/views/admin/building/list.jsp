@@ -209,15 +209,6 @@
                                                         <form:option value="" label="--Chon nhan vien"/>
                                                         <form:options items="${userList}"/>
                                                     </form:select>
-                                                        <%--<select name="staffInCharge" id="staff"--%>
-                                                        <%--aria-label="Default select example">--%>
-                                                        <%--<option selected value="">Chon nhan vien phu trach</option>--%>
-                                                        <%--<c:forEach var="item" items="${userList}">--%>
-                                                        <%--<option--%>
-                                                        <%--<c:if test="${modelSearch.staffInCharge==item.id}">selected</c:if>--%>
-                                                        <%--value="${item.id}">${item.fullName}</option>--%>
-                                                        <%--</c:forEach>--%>
-                                                        <%--</select>--%>
 
                                                 </div>
 
@@ -227,17 +218,7 @@
                                                 <div class="col-sm-3">
                                                     <form:checkboxes element="br" path="buildingTypes"
                                                                      items="${typeList}"/>
-                                                        <%--<c:forEach var="item" items="${typeList}">--%>
-                                                        <%--<div class="form-check form-check-inline">--%>
-                                                        <%--<input ${item.selected} name="buildingTypes"--%>
-                                                        <%--class="form-check-input"--%>
-                                                        <%--type="checkbox"--%>
-                                                        <%--id="inlineCheckbox1"--%>
-                                                        <%--value="${item.code}">--%>
-                                                        <%--<label class="form-check-label"--%>
-                                                        <%--for="inlineCheckbox1">${item.name}</label>--%>
-                                                        <%--</div>--%>
-                                                        <%--</c:forEach>--%>
+
 
                                                     <div>
                                                         <button id="btnSearch" type="button" class="btn btn-success">Tìm Kiếm
