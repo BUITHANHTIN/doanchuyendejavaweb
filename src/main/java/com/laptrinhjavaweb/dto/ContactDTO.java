@@ -1,7 +1,6 @@
 package com.laptrinhjavaweb.dto;
 
-public class ContactDTO {
-    private Long id;
+public class ContactDTO extends AbstractDTO {
     private String name;
     private String email;
     private String subject;

@@ -45,7 +45,7 @@ public class BuildingService implements IBuildingService {
 
     @Override
     public List<BuildingDTO> findAll(Pageable pageable) {
-        List<BuildingEntity> buildingEntityList = new ArrayList<>();
+        List<BuildingEntity> buildingEntityList = null;
         UserEntity userEntity = userRepository.findOneById(SecurityUtils.getPrincipal().getId());
         boolean checkIsManager = isManager(userEntity.getRoles());
         if (checkIsManager) {

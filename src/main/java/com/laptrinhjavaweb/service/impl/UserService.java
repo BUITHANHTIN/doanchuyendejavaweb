@@ -147,7 +147,6 @@ public class UserService implements IUserService {
     @Transactional
     public void updatePassword(long id, PasswordDTO passwordDTO) throws MyException {
         UserEntity user = userRepository.findOneById(id);
-        // userRepository.findOne(id);
         if (passwordEncoder.matches(passwordDTO.getOldPassword(), user.getPassword())
                 && passwordDTO.getNewPassword().equals(passwordDTO.getConfirmPassword())) {
             user.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));

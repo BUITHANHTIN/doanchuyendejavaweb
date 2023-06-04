@@ -52,13 +52,16 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
-                <li class="">
-                    <a href='<c:url value='/admin/user-list'/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Manager Staff
-                    </a>
-                    <b class="arrow"></b>
-                </li>
+                <security:authorize access="hasRole('MANAGER')">
+                    <li class="">
+                        <a href='<c:url value='/admin/user-list'/>'>
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Manager Staff
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                </security:authorize>
+
                 <li class="">
                     <a href='<c:url value='/admin/customer-list'/>'>
                         <i class="menu-icon fa fa-caret-right"></i>

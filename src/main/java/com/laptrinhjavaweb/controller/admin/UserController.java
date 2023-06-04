@@ -61,15 +61,33 @@ public class UserController {
     @RequestMapping(value = "/admin/user-edit", method = RequestMethod.GET)
     public ModelAndView customerEdit(@RequestParam(name = "id") Long id) {
         ModelAndView mav = new ModelAndView("admin/user/edit");
-        mav.addObject("user",userService.findUserById(id));
+        mav.addObject("user", userService.findUserById(id));
         return mav;
     }
 
     @RequestMapping(value = "/admin/user-add", method = RequestMethod.GET)
     public ModelAndView userAdd() {
         ModelAndView mav = new ModelAndView("admin/user/edit");
-        mav.addObject("user",null);
+        mav.addObject("user", null);
         return mav;
+    }
+
+    @RequestMapping(value = "/admin/profile-password", method = RequestMethod.GET)
+    public ModelAndView updatePassword(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("admin/user/password");
+        UserDTO model = userService.findOneByUserName(SecurityUtils.getPrincipal().getUsername());
+        initMessageResponse(mav, request);
+        mav.addObject(SystemConstant.MODEL, model);
+        return mav;
+    }
+
+    private void initMessageResponse(ModelAndView mav, HttpServletRequest request) {
+        String message = request.getParameter("message");
+        if (message != null && StringUtils.isNotEmpty(message)) {
+            Map<String, String> messageMap = messageUtil.getMessage(message);
+            mav.addObject(SystemConstant.ALERT, messageMap.get(SystemConstant.ALERT));
+            mav.addObject(SystemConstant.MESSAGE_RESPONSE, messageMap.get(SystemConstant.MESSAGE_RESPONSE));
+        }
     }
 
    /* @RequestMapping(value = "/admin/user-edit", method = RequestMethod.GET)

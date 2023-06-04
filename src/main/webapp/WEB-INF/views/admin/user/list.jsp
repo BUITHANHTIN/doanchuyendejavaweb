@@ -176,8 +176,6 @@
                                     <display:column headerClass="text-left" property="fullName" title="Tên"/>
                                     <display:column headerClass="text-left" property="userName"
                                                     title="Email"/>
-                                    <display:column headerClass="text-left" property="createdBy"
-                                                    title="Nhân viên quản lý"/>
 
                                     <display:column headerClass="text-left" property="phone"
                                                     title="Phone"/>

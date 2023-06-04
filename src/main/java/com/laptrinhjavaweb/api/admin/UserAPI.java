@@ -47,15 +47,15 @@ public class UserAPI {
         }
     }
 
-    @PutMapping("/password/{id}/reset")
+   /* @PutMapping("/password/{id}/reset")
     public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") long id) {
         return ResponseEntity.ok(userService.resetPassword(id));
-    }
+    }*/
 
-    @PutMapping("/profile/{username}")
+   /* @PutMapping("/profile/{username}")
     public ResponseEntity<UserDTO> updateProfileOfUser(@PathVariable("username") String username, @RequestBody UserDTO userDTO) {
         return ResponseEntity.ok(userService.updateProfileOfUser(username, userDTO));
-    }
+    }*/
 
     @DeleteMapping
     public ResponseEntity<Void> deleteUsers(@RequestBody long[] idList) {
