@@ -165,13 +165,9 @@
                                         </fieldset>
                                     </display:column>
                                     <display:column headerClass="text-left" property="fullName" title="Tên"/>
-                                    <display:column headerClass="text-left" property="createdBy"
-                                                    title="Nhân viên quản lý"/>
                                     <display:column headerClass="text-left" property="phone" title="Phone"/>
                                     <display:column headerClass="text-left" property="email" title="Email"/>
-                                    <display:column headerClass="text-left" property="demand" title="Demand"/>
-                                    <display:column headerClass="text-left" property="createdBy"
-                                                    title="Người nhập"/>
+                                    <display:column headerClass="text-left" property="note" title="Note"/>
                                     <display:column headerClass="text-left" property="createdDate"
                                                     title="Ngày nhập"/>
                                     <display:column headerClass="text-left" property="status" title="Tình trạng"/>
