@@ -164,7 +164,7 @@
                         <div class="form-floating mb-2">
 
                             <input type="hidden" class="form-control form-control-lg"
-                                   name="note" value="Tư vấn cho khách về building có id là ${model.id}"
+                                   name="note" value="Tư vấn cho khách về building có tên là ${model.name}"
                             />
                         </div>
                         <div class="form-floating">

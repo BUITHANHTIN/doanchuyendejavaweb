@@ -69,13 +69,13 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
-                <li class="">
+               <%-- <li class="">
                     <a href='<c:url value='/admin/contact-list'/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         Manager Contact
                     </a>
                     <b class="arrow"></b>
-                </li>
+                </li>--%>
 
             </ul>
         </li>

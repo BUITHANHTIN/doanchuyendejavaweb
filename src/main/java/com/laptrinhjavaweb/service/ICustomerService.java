@@ -5,6 +5,7 @@ import com.laptrinhjavaweb.dto.CustomerDTO;
 import com.laptrinhjavaweb.dto.Request.BuildingSearchRequestDTO;
 import com.laptrinhjavaweb.dto.Request.CustomerSearchRequestDTO;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 

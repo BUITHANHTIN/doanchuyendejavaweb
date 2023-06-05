@@ -24,7 +24,7 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
 
     @Override
     public List<CustomerEntity> listAll(Pageable pageable) {
-        StringBuilder finalSql = buildQueryFindAllFilter().append(" LIMIT ").append(pageable.getPageSize()).append("\n")
+        StringBuilder finalSql = buildQueryFindAllFilter().append(" ORDER BY id DESC ").append(" LIMIT ").append(pageable.getPageSize()).append("\n")
                 .append(" OFFSET ").append(pageable.getOffset());
         Query query = entityManager.createNativeQuery(finalSql.toString(), CustomerEntity.class);
         return query.getResultList();
@@ -50,7 +50,7 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
 
     @Override
     public List<CustomerEntity> findByCondition(CustomerSearchBuilder customerSearchBuilder, Pageable pageable) {
-        StringBuilder finalSql = buildQueryFindConditionFilter(customerSearchBuilder).append(" LIMIT ").append(pageable.getPageSize()).append("\n")
+        StringBuilder finalSql = buildQueryFindConditionFilter(customerSearchBuilder).append(" ORDER BY id DESC ").append(" LIMIT ").append(pageable.getPageSize()).append("\n")
                 .append(" OFFSET ").append(pageable.getOffset());
         Query query = entityManager.createNativeQuery(finalSql.toString(), CustomerEntity.class);
         return query.getResultList();
