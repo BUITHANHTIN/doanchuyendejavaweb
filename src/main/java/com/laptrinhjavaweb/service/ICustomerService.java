@@ -27,5 +27,5 @@ public interface ICustomerService {
 
 
 
-    public int countTotalCustomer();
+
 }

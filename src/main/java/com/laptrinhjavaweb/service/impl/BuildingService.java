@@ -36,8 +36,6 @@ public class BuildingService implements IBuildingService {
     private UserRepository userRepository;
 
     @Autowired
-    private RentAreaRepository rentAreaRepository;
-    @Autowired
     private UploadFileUtils uploadFileUtils;
 
     @Autowired

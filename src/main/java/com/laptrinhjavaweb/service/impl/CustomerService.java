@@ -38,16 +38,10 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @Autowired
-    private BuildingRepository buildingRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RentAreaRepository rentAreaRepository;
-    @Autowired
-    private UploadFileUtils uploadFileUtils;
 
 
     @Autowired
@@ -133,12 +127,6 @@ public class CustomerService implements ICustomerService {
         return customerRepository.countTotalItemFindConditionCustomer(searchBuilder);
     }
 
-
-
-    @Override
-    public int countTotalCustomer() {
-        return customerRepository.countTotalItemFindAllCustomer();
-    }
 
     @Override
     public CustomerDTO findById(Long id) {

@@ -203,14 +203,19 @@
                                                            class="form-control"/>
                                                 </div>
 
-                                                <div class="col-sm-3">
-                                                    <label>Nhân viên phụ trách</label>
-                                                    <form:select path="staffInCharge">
-                                                        <form:option value="" label="--Chon nhan vien"/>
-                                                        <form:options items="${userList}"/>
-                                                    </form:select>
 
-                                                </div>
+                                                <security:authorize access="hasRole('MANAGER')">
+                                                    <div class="col-sm-3">
+                                                        <label>Nhân viên phụ trách</label>
+                                                        <form:select path="staffInCharge">
+                                                            <form:option value="" label="--Chon nhan vien"/>
+                                                            <form:options items="${userList}"/>
+                                                        </form:select>
+
+                                                    </div>
+
+                                                </security:authorize>
+
 
                                                 <!-- PAGE CONTENT ENDS -->
                                             </div><!-- /.col -->

@@ -30,35 +30,17 @@ import java.util.List;
 public class TransactionService implements ITransactionService {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private TransactionRepository transactionRepository;
 
     @Autowired
     private TransactionConverter transactionConverter;
 
 
-    public boolean isManager(List<RoleEntity> list) {
-        for (RoleEntity entity : list) {
-            if (entity.getCode().equals(SystemConstant.MANAGER)) {
-                return true;
-            }
-        }
-        return false;
-
-    }
 
     @Override
     @Transactional
     public List<TransactionDTO> findConditon(String code, Long customerId) {
         List<TransactionDTO> listDTO = new ArrayList<>();
-        //  Long staffId = null;
-        //    UserEntity userEntity = userRepository.findOneById(SecurityUtils.getPrincipal().getId());
-        //   boolean checkIsManager = isManager(userEntity.getRoles());
-//        if (!checkIsManager) {
-//            staffId = SecurityUtils.getPrincipal().getId();
-//        }
         List<TransactionEntity> listEntity = transactionRepository.findByConditon(code, customerId);
         for (TransactionEntity entity : listEntity) {
             listDTO.add(transactionConverter.convertToDto(entity));

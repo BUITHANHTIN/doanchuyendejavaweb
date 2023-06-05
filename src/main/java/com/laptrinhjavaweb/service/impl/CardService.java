@@ -38,8 +38,6 @@ public class CardService implements ICardService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private BuildingConverter buildingConverter;
 
     @Override
     @Transactional

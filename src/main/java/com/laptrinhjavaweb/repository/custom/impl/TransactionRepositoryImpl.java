@@ -1,8 +1,6 @@
 package com.laptrinhjavaweb.repository.custom.impl;
 
-import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.entity.TransactionEntity;
-import com.laptrinhjavaweb.repository.custom.RoleRepositoryCustom;
 import com.laptrinhjavaweb.repository.custom.TransactionRepositoryCustom;
 import org.springframework.stereotype.Repository;
 
